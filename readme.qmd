@@ -33,7 +33,7 @@ library(naniar)
 
 We can use the `visdat` package to get an overview of the missingness of an entire data set. It was heavily inspired by [`csv-fingerprint`](https://setosa.io/blog/2014/08/03/csv-fingerprints/), and functions like `missmap`, from `Amelia`. 
 
-We can use `visdat`'s `vis_miss()` function from visdat to visualises the missingness of a whole dataframe at once. It displays the data as missing, or not missing, and provides the amount of missings in each columns:
+We can use `visdat`'s `vis_miss()` function to visualise the missingness of a whole dataframe. It displays the data as missing, or not missing, and provides the amount of missings in each columns:
 
 ```{r}
 #| label: vis-miss-cluster-vanilla
@@ -76,10 +76,9 @@ Where we learn that month 9 doesn't have much missing data, and a lot of the mis
 There are more visualisations available in `naniar` (each starting with `gg_miss_`) - you can see these in the ["Gallery of Missing Data Visualisations" vignette.](https://cran.r-project.org/package=naniar/vignettes/naniar-visualisation.html). The plots created with the `gg_miss` family all have a basic theme, but you can customise them, and add arguments like so:
 
 ```{r gg-miss-var-theme}
+# probably don't need to output the images for these two, including the code is sufficient
 gg_miss_var(airquality) + theme_bw() 
-
 gg_miss_var(airquality) + labs(y = "Look at all the missing ones")
-
 ```
 
 It is also worth noting that for every visualisation of missing data in `naniar`, there is an accompanying function to extract the data used in the plot. This is important as the plot should not return a dataframe - but we want to make the data available for use by the user so it isn't locked into a plot. 
@@ -116,30 +115,13 @@ This imputation is wrapped up in the `geom_miss_point()` ggplot2 geom. Here, we 
 ggplot(airquality, 
        aes(x = Solar.R, 
            y = Ozone)) + 
-  geom_point()
-
-ggplot(airquality, 
-       aes(x = Solar.R, 
-           y = Ozone)) + 
   geom_miss_point()
 
 ```
 
-Being a proper ggplot geom, it supports all of the standard features of ggplot2, such as **facets**,
+Being a proper ggplot geom, it supports all of the standard features of ggplot2, such as **facets** and **themes**,
 
 ```{r ggmissing-facet, echo = TRUE, out.width = "70%"}
-
-ggplot(airquality, 
-       aes(x = Solar.R, 
-           y = Ozone)) + 
-  geom_miss_point() + 
-  facet_wrap(~Month)
-
-```
-
-And different **themes**
-
-```{r ggmissing-theme, echo = TRUE, out.width = "70%"}
 
 ggplot(airquality, 
        aes(x = Solar.R, 
@@ -149,7 +131,6 @@ ggplot(airquality,
   theme_dark()
 
 ```
-
 
 ## Numerical summaries of missing values
 
@@ -187,15 +168,17 @@ miss_case_summary(airquality)
 
 `miss_case_table()` tabulates the number of missing values in a case / row. Below, this shows the number of missings in a case:
 
-- There are 111 cases with 0 missings, which comprises about 72% of the data.
-- There are then 40 cases with 1 missing, these make up 26% of the data.
-- There are then 2 cases with 2 missing - these make up 1% of the data.
-
 ```{r miss-case-table}
 
 miss_case_table(airquality)
 
 ```
+
+We can interpret this output as follows:
+
+- There are 111 cases with 0 missings, which comprises about 72% of the data.
+- There are then 40 cases with 1 missing, these make up 26% of the data.
+- There are then 2 cases with 2 missing - these make up 1% of the data.
 
 Similar to `pct_miss_case()`, `prop_miss_case()`, `pct_miss_var()` and `prop_miss_var()`  returns the percent and proportion of variables that contain a missing value.
 
@@ -229,7 +212,7 @@ There are also summary functions for exploring missings that occur over a partic
 - `miss_var_run()`, and 
 - `miss_var_span()`
 
-`miss_var_run()` can be particularly useful in time series data, as it allows you to provide summaries for the number of missings or complete values in a single run. The function `miss_var_run()` provides a data.frame of the run length of missings and complete values. To explore this function we will use the built-in dataset, `pedestrian`, which contains hourly counts of pedestrians from four locations around Melbourne, Australia, from 2016.
+`miss_var_run()` can be particularly useful in time series data, as it allows you to provide summaries for the number of missings or complete values in a single run. The function `miss_var_run()` provides a data frame of the run length of missings and complete values. To explore this function we will use the built-in dataset, `pedestrian`, which contains hourly counts of pedestrians from four locations around Melbourne, Australia, from 2016.
 
 To use `miss_var_run()`, you specify the variable that you want to explore the runs of missingness for, in this case, `hourly_counts`:
 
@@ -290,6 +273,7 @@ Note that we no longer get any errors regarding missing observations - because t
 
 We can track a copy of the missing data locations by using the function `nabular()`, which binds another dataset to the current one which notes the locations of the missing data. This is a really important idea with `naniar`, but to keep it brief, the data looks like this:
 
+MISSING??
 
 Using the shadow matrix to keep track of where the missings are, you can actually keep track of the imputations, by colouring by what was previously missing in Ozone.
 
