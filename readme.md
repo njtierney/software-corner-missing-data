@@ -1,6 +1,5 @@
 # Some ideas for exploring missing data
 
-
 Nicholas Tierney
 
 Infectious Disease Ecology and Modelling group
@@ -15,7 +14,7 @@ so frustrated by how hard it was to handle and wrangle with them that I
 have written two R packages (visdat, naniar), and several papers on the
 topic.
 
-The goal of this paper is to share some condensed ideas on exploring
+The goal of this article is to share some condensed ideas on exploring
 missing data, using the software I’ve written, `naniar`, and `visdat`.
 To that end, we will focus on four questions, how do we:
 
@@ -47,13 +46,18 @@ and provides the amount of missings in each columns:
 vis_miss(airquality)
 ```
 
-![An overview of missing data in the airquality dataset. The x axis
-shows the variables of the data, along with the amount of missingness in
-that variable, and the y axis shows the rows. Each cell represents the
-missingness of a datum. The overall missingness is given in a percentage
-below in the legend. We learn that there is nearly 5% missing data
-overall, the missing data occurs in Ozone and Solar.R, and mostly in
-Ozone.](readme_files/figure-commonmark/vis-miss-cluster-vanilla-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/vis-miss-cluster-vanilla-1.png"
+width="672"
+alt="An overview of missing data in the airquality dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 5% missing data overall, the missing data occurs in Ozone and Solar.R, and mostly in Ozone." />
+<figcaption aria-hidden="true">An overview of missing data in the
+airquality dataset. The x axis shows the variables of the data, along
+with the amount of missingness in that variable, and the y axis shows
+the rows. Each cell represents the missingness of a datum. The overall
+missingness is given in a percentage below in the legend. We learn that
+there is nearly 5% missing data overall, the missing data occurs in
+Ozone and Solar.R, and mostly in Ozone.</figcaption>
+</figure>
 
 We learn that there is nearly 5% missing data overall, the missing data
 occurs in Ozone and Solar.R, and mostly in Ozone. The other variables do
@@ -69,12 +73,16 @@ variable:
 vis_miss(airquality, facet = Month) 
 ```
 
-![An further overview of missing data in the airquality dataset. Similar
-to the previous graphic, we now present a facetted series of sub plots,
-one for each Month. We learn from this that most of the Ozone
-missingness happens in Month 6, and there aren’t missing values for
-months 6, 7, and
-9.](readme_files/figure-commonmark/vis-miss-facet-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/vis-miss-facet-1.png"
+width="672"
+alt="An further overview of missing data in the airquality dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each Month. We learn from this that most of the Ozone missingness happens in Month 6, and there aren’t missing values for months 6, 7, and 9." />
+<figcaption aria-hidden="true">An further overview of missing data in
+the airquality dataset. Similar to the previous graphic, we now present
+a facetted series of sub plots, one for each Month. We learn from this
+that most of the Ozone missingness happens in Month 6, and there aren’t
+missing values for months 6, 7, and 9.</figcaption>
+</figure>
 
 We learn from this that most of the Ozone missingness happens in Month
 6, and there aren’t missing values for months 6, 7, and 9.
@@ -94,10 +102,14 @@ the `gg_miss_var` plot:
 gg_miss_var(airquality)
 ```
 
-![Number of missing values for each variable. The x axis shows the
-number of missings, and the y axis shows each variable. We learn Ozone
-and Solar.R have the most missing data, and Ozone has the most missing
-data.](readme_files/figure-commonmark/gg-miss-var-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/gg-miss-var-1.png" width="288"
+alt="Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn Ozone and Solar.R have the most missing data, and Ozone has the most missing data." />
+<figcaption aria-hidden="true">Number of missing values for each
+variable. The x axis shows the number of missings, and the y axis shows
+each variable. We learn Ozone and Solar.R have the most missing data,
+and Ozone has the most missing data.</figcaption>
+</figure>
 
 This displays the number of missing values in each variable. We learn
 that there are pretty much only missing values for Ozone and Solar, with
@@ -108,10 +120,15 @@ these plots, via the `facet` argument:
 gg_miss_var(airquality, facet = Month)
 ```
 
-![Similar to the above plot but one subplot for each Month. We Learn
-that most of the missing values occur in month 6 for Ozone, and that
-months 6, 7, and 9 don’t have and Solar.R missing
-values.](readme_files/figure-commonmark/gg-miss-var-facet-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/gg-miss-var-facet-1.png"
+width="384"
+alt="Similar to the above plot but one subplot for each Month. We learn that most of the missing values occur in month 6 for Ozone, and that months 6, 7, and 9 don’t have and Solar.R missing values." />
+<figcaption aria-hidden="true">Similar to the above plot but one subplot
+for each Month. We learn that most of the missing values occur in month
+6 for Ozone, and that months 6, 7, and 9 don’t have and Solar.R missing
+values.</figcaption>
+</figure>
 
 Where we learn that month 9 doesn’t have much missing data, and a lot of
 the missing data seems to occur in month 6.
@@ -119,7 +136,7 @@ the missing data seems to occur in month 6.
 There are more visualisations available in `naniar` (each starting with
 `gg_miss_`) - you can see these in the [“Gallery of Missing Data
 Visualisations”
-vignette.](https://cran.r-project.org/package=naniar/vignettes/naniar-visualisation.html).
+vignette](https://cran.r-project.org/package=naniar/vignettes/naniar-visualisation.html).
 The plots created with the `gg_miss` family all have a basic theme, but
 you can customise them, and add arguments like so:
 
@@ -128,13 +145,15 @@ you can customise them, and add arguments like so:
 gg_miss_var(airquality) + theme_bw() 
 ```
 
-![](readme_files/figure-commonmark/gg-miss-var-theme-1.png)
+<img src="readme_files/figure-commonmark/gg-miss-var-theme-1.png"
+width="672" />
 
 ``` r
 gg_miss_var(airquality) + labs(y = "Look at all the missing ones")
 ```
 
-![](readme_files/figure-commonmark/gg-miss-var-theme-2.png)
+<img src="readme_files/figure-commonmark/gg-miss-var-theme-2.png"
+width="672" />
 
 It is also worth noting that for every visualisation of missing data in
 `naniar`, there is an accompanying function to extract the data used in
@@ -151,7 +170,7 @@ miss_var_summary(airquality)
 
     # A tibble: 6 × 3
       variable n_miss pct_miss
-      <chr>     <int>    <num>
+      <chr>     <int>    <dbl>
     1 Ozone        37    24.2 
     2 Solar.R       7     4.58
     3 Wind          0     0   
@@ -170,7 +189,7 @@ airquality %>%
     # A tibble: 25 × 4
     # Groups:   Month [5]
        Month variable n_miss pct_miss
-       <int> <chr>     <int>    <num>
+       <int> <chr>     <int>    <dbl>
      1     5 Ozone         5     16.1
      2     5 Solar.R       4     12.9
      3     5 Wind          0      0  
@@ -237,7 +256,14 @@ ggplot(airquality,
 
     Warning: Removed 42 rows containing missing values (`geom_point()`).
 
-![](readme_files/figure-commonmark/example-geom-point-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/example-geom-point-1.png"
+width="480"
+alt="Plot of Solar.R against Ozone. Solar.R is on the X axis and Ozone is on the Y axis. We learn that there is a slight positive correlation of Ozone with Solar.R" />
+<figcaption aria-hidden="true">Plot of Solar.R against Ozone. Solar.R is
+on the X axis and Ozone is on the Y axis. We learn that there is a
+slight positive correlation of Ozone with Solar.R</figcaption>
+</figure>
 
 The problem with this is ggplot does not handle missings be default, and
 removes the missing values. This makes them hard to explore. It also
@@ -256,11 +282,21 @@ Solar radiation from the airquality dataset.
 ggplot(airquality, 
        aes(x = Solar.R, 
            y = Ozone)) + 
-  geom_miss_point()
+  geom_miss_point() + 
+  scale_colour_brewer(palette = "Dark2")
 ```
 
+<figure>
 <img src="readme_files/figure-commonmark/geom-miss-point-1.png"
-style="width:50.0%" />
+style="width:50.0%"
+alt="Improved plot of Ozone against Solar.R, we can now see the missing values are imputed 10% below the minimum value. The green dots on the x axis represent the Solar.R values that have missing Ozone. The green dots on the Y axis represent Ozone values that have missing Solar.R. The two dots in the bottom left corner are missing for both Ozone and Solar.R" />
+<figcaption aria-hidden="true">Improved plot of Ozone against Solar.R,
+we can now see the missing values are imputed 10% below the minimum
+value. The green dots on the x axis represent the Solar.R values that
+have missing Ozone. The green dots on the Y axis represent Ozone values
+that have missing Solar.R. The two dots in the bottom left corner are
+missing for both Ozone and Solar.R</figcaption>
+</figure>
 
 Being a proper ggplot geom, it supports all of the standard features of
 ggplot2, such as **facets** and **themes**,
@@ -274,8 +310,14 @@ ggplot(airquality,
   theme_dark()
 ```
 
+<figure>
 <img src="readme_files/figure-commonmark/ggmissing-facet-1.png"
-style="width:70.0%" />
+style="width:70.0%"
+alt="A faceted version of the improved Ozone against Solar.R plot where each month is split out into its own subplot." />
+<figcaption aria-hidden="true">A faceted version of the improved Ozone
+against Solar.R plot where each month is split out into its own
+subplot.</figcaption>
+</figure>
 
 ## Numerical summaries of missing values
 
@@ -409,7 +451,7 @@ miss_var_summary(airquality)
 
     # A tibble: 6 × 3
       variable n_miss pct_miss
-      <chr>     <int>    <num>
+      <chr>     <int>    <dbl>
     1 Ozone        37    24.2 
     2 Solar.R       7     4.58
     3 Wind          0     0   
@@ -527,7 +569,14 @@ airquality %>%
   geom_point()
 ```
 
-![](readme_files/figure-commonmark/simpute-invisible-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/simpute-invisible-1.png"
+width="672"
+alt="Imputed values are not visible. A plot of Ozone by Temperature. The Imputed Ozone values are not visible because we have no way to identify them in the data." />
+<figcaption aria-hidden="true">Imputed values are not visible. A plot of
+Ozone by Temperature. The Imputed Ozone values are not visible because
+we have no way to identify them in the data.</figcaption>
+</figure>
 
 Note that we no longer get any errors regarding missing observations -
 because they are all imputed! But this comes at a cost: we also no
@@ -605,13 +654,18 @@ head(aq_lm_imputed)
   scale_colour_brewer(palette = "Dark2")
 ```
 
-![Regression imputed values of Ozone in a scatterplot of Ozone vs
-Temperature. Temperature is on the X axis and Ozone is on the Y axis,
-and the points are coloured by whether they are imputed - ‘NA’ indicates
-a previously missing value that has been imputed. We learn that the
-regression imputation imputes the values approximately amongst the rest
-of the data, at the surface level, this appears to be a good
-imputation.](readme_files/figure-commonmark/simpute-visible-lm-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/simpute-visible-lm-1.png"
+width="672"
+alt="Regression imputed values of Ozone in a scatterplot of Ozone vs Temperature. Temperature is on the X axis and Ozone is on the Y axis, and the points are coloured by whether they are imputed - ‘NA’ indicates a previously missing value that has been imputed. We learn that the regression imputation imputes the values approximately amongst the rest of the data, at the surface level, this appears to be a good imputation." />
+<figcaption aria-hidden="true">Regression imputed values of Ozone in a
+scatterplot of Ozone vs Temperature. Temperature is on the X axis and
+Ozone is on the Y axis, and the points are coloured by whether they are
+imputed - ‘NA’ indicates a previously missing value that has been
+imputed. We learn that the regression imputation imputes the values
+approximately amongst the rest of the data, at the surface level, this
+appears to be a good imputation.</figcaption>
+</figure>
 
 Let’s contrast this to how poor imputing just the mean value is, using
 `impute_mean_all()`:
@@ -649,10 +703,15 @@ ggplot(aq_mean_imputed,
   scale_colour_brewer(palette = "Dark2")
 ```
 
-![The same plot as above, but using mean imputation. We learn that mean
-imputation places the imputed values all at a single point, which does
-not represent the variation we see in the
-data.](readme_files/figure-commonmark/simpute-visible-mean-1.png)
+<figure>
+<img src="readme_files/figure-commonmark/simpute-visible-mean-1.png"
+width="672"
+alt="The same plot as above, but using mean imputation. We learn that mean imputation places the imputed values all at a single point, which does not represent the variation we see in the data." />
+<figcaption aria-hidden="true">The same plot as above, but using mean
+imputation. We learn that mean imputation places the imputed values all
+at a single point, which does not represent the variation we see in the
+data.</figcaption>
+</figure>
 
 # Conclusion
 
