@@ -11,7 +11,22 @@ Infectious Disease Ecology and Modelling group
 
 Telethon Kids Institute, Perth, WA, Australia
 
-## Introduction
+```{r}
+#| include: false
+rodents <- read_csv("data/rodents.csv")
+```
+
+```{r}
+#| label: load-pkgs
+options(tidyverse.quiet = TRUE)
+library(tidyverse)
+library(visdat)
+library(naniar)
+library(knitr)
+```
+
+
+# Introduction
 
 If you've done data analysis, then chances are you've encountered missing data. I've encountered my fair share of missing data and I felt so frustrated by how hard it was to handle and wrangle with them that I have written two R packages (visdat, naniar), and several papers on the topic.
 
@@ -22,41 +37,44 @@ The goal of this article is to share some condensed ideas on exploring missing d
 3.  Explore missingness relationships?
 4.  Explore imputed values
 
-# Start looking at missing data?
+# The data
+
+The data used for this paper is measurements of rodents in Kansas, from @hope2023. This data was initially found in Allison Horst's "Exploring missing values in naniar" shiny application: https://allisonhorst.shinyapps.io/missingexplorer/. In this paper we use a different subset of the data. For information on the metadata of the paper see http://lter.konza.ksu.edu/content/csm08-small-mammal-host-parasite-sampling-data-16-linear-trapping-transects-located-8-lter. We are looking at four species of rodents, the Eastern woodrat, Prairie vole, Western harvest mouse, and Deer mouse. Below is a snapshot of the first 10 rows of the data:
 
 ```{r}
-#| label: load-pkgs
-options(tidyverse.quiet = TRUE)
-library(tidyverse)
-library(visdat)
-library(naniar)
+rodents %>% 
+  slice_head(n = 10) %>% 
+  kable()
 ```
+
+# Start looking at missing data?
 
 We can use the `visdat` package [@visdat] to get an overview of the missingness of an entire data set. It was heavily inspired by [`csv-fingerprint`](https://setosa.io/blog/2014/08/03/csv-fingerprints/), and functions like `missmap`, from `Amelia` [@amelia].
 
 We can use `visdat`'s `vis_miss()` function to visualise the missingness of a whole dataframe. @fig-vis-miss-cluster-vanilla gives an example where it displays the data as missing, or not missing, and provides the amount of missings in each columns.
 
+
 ```{r}
 #| label: fig-vis-miss-cluster-vanilla
 #| fig-height: 3
-#| fig-cap: "An overview of missing data in the airquality dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 5% missing data overall, the missing data occurs in Ozone and Solar.R, and mostly in Ozone."
-vis_miss(airquality)
+#| fig-cap: "An overview of missing data in the rodents dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age."
+vis_miss(rodents)
 ```
 
-We learn that there is nearly 5% missing data overall, the missing data occurs in Ozone and Solar.R, and mostly in Ozone. The other variables do not have any missing data.
+We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age, and mostly in total length and ear_length. 
 
 ### Facetting in visdat
 
-You can also split up the `vis_miss` plots into several facetted plots via the `facet` argument. For example, in @fig-vis-miss-facet we facet by the `Month` variable.
+You can also split up the `vis_miss` plots into several facetted plots via the `facet` argument. For example, in @fig-vis-miss-facet we facet by the `common_name` variable.
 
 ```{r}
 #| label: fig-vis-miss-facet
 #| fig-height: 3
-#| fig-cap: "An further overview of missing data in the airquality dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each Month. We learn from this that most of the Ozone missingness happens in Month 6, and there aren't missing values for months 6, 7, and 9."
-vis_miss(airquality, facet = Month) 
+#| fig-cap: "An further overview of missing data in the rodents dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each species. We learn from this that the missingness seems to be the same across each species"
+vis_miss(rodents, facet = species) 
 ```
 
-We learn from this that most of the Ozone missingness happens in Month 6, and there aren't missing values for months 6, 7, and 9.
+We learn from this that the missingness appears to occur in each species at approximately the same rate. 
 
 There are other functions in the visdat package that focus on other types of data, for example, `vis_value()`, `vis_binary()`, and `vis_compare()`. To read more about the functions available in `visdat` see the vignette ["Using visdat"](https://CRAN.R-project.org/package=visdat/vignettes/using_visdat.html).
 
@@ -68,8 +86,8 @@ Another approach to visualising the missingness in a dataset is to use the `gg_m
 #| label: fig-gg-miss-var
 #| fig-height: 1.5
 #| fig-width: 3
-#| fig-cap: "Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn Ozone and Solar.R have the most missing data, and Ozone has the most missing data."
-gg_miss_var(airquality)
+#| fig-cap: "Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age."
+gg_miss_var(rodents)
 ```
 
 This displays the number of missing values in each variable. We learn that there are pretty much only missing values for Ozone and Solar, with more for Ozone. Just like with `vis_miss()`, we can add in facets in these plots, via the `facet` argument, see @fig-gg-miss-var-facet.
@@ -78,9 +96,9 @@ This displays the number of missing values in each variable. We learn that there
 #| label: fig-gg-miss-var-facet
 #| fig-height: 2.5
 #| fig-width: 4
-#| fig-cap: "Similar to the above plot but one subplot for each Month. We learn that most of the missing values occur in month 6 for Ozone, and that months 6, 7, and 9 don't have and Solar.R missing values."
+#| fig-cap: "Similar to the above plot but one subplot for each species. We learn that most of the missing values occur in month 6 for Ozone, and that months 6, 7, and 9 don't have and Solar.R missing values."
 
-gg_miss_var(airquality, facet = Month)
+gg_miss_var(rodents, facet = species)
 ```
 
 Where we learn that month 9 doesn't have much missing data, and a lot of the missing data seems to occur in month 6.
@@ -90,7 +108,7 @@ There are more visualisations available in `naniar` (each starting with `gg_miss
 ```{r}
 #| label: gg-miss-var-theme
 #| fig-show: hide
-gg_miss_var(airquality) + 
+gg_miss_var(rodents) + 
   theme_bw() + 
   labs(y = "Number of missing observations")
 ```
@@ -100,15 +118,15 @@ It is also worth noting that for every visualisation of missing data in `naniar`
 You can find these summary plots below, with `miss_var_summary()` providing the dataframe that `gg_miss_var()` is based on.
 
 ```{r}
-miss_var_summary(airquality)
+miss_var_summary(rodents)
 ```
 
 Which also works with `group_by()`:
 
 ```{r}
 #| results: hide
-airquality %>% 
-  group_by(Month) %>% 
+rodents %>% 
+  group_by(species) %>% 
   miss_var_summary()
 ```
 
@@ -116,7 +134,7 @@ Similarly, there is a `data_vis_miss()` function in the `visdat` package, which 
 
 ```{r}
 #| results: hide
-data_vis_miss(airquality)
+data_vis_miss(rodents)
 ```
 
 The aim of these is to provide the data required to make these visualisations, so if people want to create their own more customised versions of `vis_miss()` or `gg_miss_var()` then they can do that.
@@ -129,7 +147,7 @@ We can identify key variables that are missing using `vis_miss()` and `gg_miss_v
 -   Solar.R
 -   Wind
 -   Temp
--   Month
+-   species
 -   Day
 
 Typically, when exploring this data, we might want to explore the variables Solar.R and Ozone. @fig-example-geom-point shows a scatter plot of solar radiation and ozone.
@@ -143,7 +161,7 @@ Typically, when exploring this data, we might want to explore the variables Sola
 #| fig-cap: "Plot of Solar.R against Ozone. Solar.R is on the X axis and Ozone is on the Y axis. We learn that there is a slight positive correlation of Ozone with Solar.R"
 
 library(ggplot2)
-ggplot(airquality, 
+ggplot(rodents, 
        aes(x = Solar.R, 
            y = Ozone)) + 
   geom_point()
@@ -151,7 +169,7 @@ ggplot(airquality,
 
 The problem with this is ggplot does not handle missings be default, and removes the missing values. This makes them hard to explore. It also presents the strange question of "how do you visualise something that is not there?". One approach to visualising missing data comes from [`ggobi`](https://en.wikipedia.org/wiki/GGobi) and [`manet`](http://www.rosuda.org/MANET/), where we impute "NA" values with values 10% lower than the minimum value in that variable, which puts these values in a margin area on the graphic.
 
-This imputation is wrapped up in the `geom_miss_point()` ggplot2 geom. @fig-geom-miss-point illustrates this by exploring the relationship between Ozone and Solar radiation from the airquality dataset.
+This imputation is wrapped up in the `geom_miss_point()` ggplot2 geom. @fig-geom-miss-point illustrates this by exploring the relationship between Ozone and Solar radiation from the rodents dataset.
 
 ```{r}
 #| label: fig-geom-miss-point
@@ -161,7 +179,7 @@ This imputation is wrapped up in the `geom_miss_point()` ggplot2 geom. @fig-geom
 #| fig-show: hold
 #| fig-cap: "Improved plot of Ozone against Solar.R, we can now see the missing values are imputed 10% below the minimum value. The green dots on the x axis represent the Solar.R values that have missing Ozone. The green dots on the Y axis represent Ozone values that have missing Solar.R. The two dots in the bottom left corner are missing for both Ozone and Solar.R"
 
-ggplot(airquality, 
+ggplot(rodents, 
        aes(x = Solar.R, 
            y = Ozone)) + 
   geom_miss_point() + 
@@ -178,11 +196,11 @@ Being a proper ggplot geom, it supports all of the standard features of ggplot2,
 #| fig-height: 3
 #| fig-cap: "A faceted version of the improved Ozone against Solar.R plot where each month is split out into its own subplot."
 
-ggplot(airquality, 
+ggplot(rodents, 
        aes(x = Solar.R, 
            y = Ozone)) + 
   geom_miss_point() + 
-  facet_wrap(~Month) + 
+  facet_wrap(~species) + 
   theme_dark()
 
 ```
@@ -195,14 +213,14 @@ ggplot(airquality,
 #| label: helpers-n-miss
 #| echo: true
 
-dplyr::n_distinct(airquality)
-dplyr::n_distinct(airquality$Ozone)
+dplyr::n_distinct(rodents)
+dplyr::n_distinct(rodents$Ozone)
 
-n_miss(airquality)
-n_miss(airquality$Ozone)
+n_miss(rodents)
+n_miss(rodents$Ozone)
 
-n_complete(airquality)
-n_complete(airquality$Ozone)
+n_complete(rodents)
+n_complete(rodents$Ozone)
 
 ```
 
@@ -212,8 +230,8 @@ The syntax for the other numerical sumamries in `naniar` are `miss_`, and then `
 
 ```{r}
 #| label: prop-miss-case
-prop_miss_case(airquality)
-pct_miss_case(airquality)
+prop_miss_case(rodents)
+pct_miss_case(rodents)
 ```
 
 `miss_case_summary()` returns a numeric value that describes the number of missings in a given case (aka row), the percent of missings in that row.
@@ -221,7 +239,7 @@ pct_miss_case(airquality)
 ```{r}
 #| label: miss-case-summary
 
-miss_case_summary(airquality)
+miss_case_summary(rodents)
 
 ```
 
@@ -230,7 +248,7 @@ miss_case_summary(airquality)
 ```{r}
 #| label: miss-case-table
 
-miss_case_table(airquality)
+miss_case_table(rodents)
 
 ```
 
@@ -244,8 +262,8 @@ Similar to `pct_miss_case()`, `prop_miss_case()`, `pct_miss_var()` and `prop_mis
 
 ```{r}
 #| label: prop-miss-var
-prop_miss_var(airquality)
-pct_miss_var(airquality)
+prop_miss_var(rodents)
+pct_miss_var(rodents)
 ```
 
 `miss_var_summary()` then returns the number of missing values in a variable, and the percent missing in that variable.
@@ -253,7 +271,7 @@ pct_miss_var(airquality)
 ```{r}
 #| label: miss-var-summary
 
-miss_var_summary(airquality)
+miss_var_summary(rodents)
 
 ```
 
@@ -266,7 +284,7 @@ Finally, `miss_var_table()`. This describes the number of missings in a variable
 ```{r}
 #| label: miss-var-table
 
-miss_var_table(airquality)
+miss_var_table(rodents)
 
 ```
 
@@ -311,7 +329,7 @@ Using the [`simputation`](https://cran.r-project.org/package=simputation) packag
 library(simputation)
 library(dplyr)
 
-airquality %>%
+rodents %>%
   impute_lm(Ozone ~ Temp + Wind) %>%
   ggplot(aes(x = Temp,
              y = Ozone)) + 
@@ -326,7 +344,7 @@ This is a really important idea with `naniar`, but to keep it brief, for each co
 For example, a new column called `Solar.R_NA` is created:
 
 ```{r}
-nabular(airquality) |> 
+nabular(rodents) |> 
   select(starts_with("Solar.R")) |> 
   head()
 ```
@@ -342,7 +360,7 @@ Using the shadow matrix to keep track of where the missings are, you can actuall
 #| fig-width: 4
 #| fig-cap: "Regression imputed values of Ozone in a scatterplot of Ozone vs Temperature. Temperature is on the X axis and Ozone is on the Y axis, and the points are coloured by whether they are imputed - 'NA' indicates a previously missing value that has been imputed. We learn that the regression imputation imputes the values approximately amongst the rest of the data, at the surface level, this appears to be a good imputation."
 
-aq_lm_imputed <- airquality %>%
+aq_lm_imputed <- rodents %>%
   nabular() %>% 
   as.data.frame() %>% 
   impute_lm(Ozone ~ Temp + Wind)
@@ -364,7 +382,7 @@ Let's contrast this to how poor imputing just the mean value is, using `impute_m
 #| fig-width: 4
 #| fig-cap: "The same plot as above, but using mean imputation. We learn that mean imputation places the imputed values all at a single point, which does not represent the variation we see in the data."
 
-aq_mean_imputed <- airquality %>%
+aq_mean_imputed <- rodents %>%
   nabular() %>% 
   as.data.frame() %>% 
   impute_mean_all()

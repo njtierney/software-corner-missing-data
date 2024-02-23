@@ -1,0 +1,2300 @@
+
+  
+    
+      uid=KNZ,o=LTER,dc=ecoinformatics,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/f7bfb7226b093c817dc391c34a88b514CSM08
+    CSM08 Small mammal host-parasite sampling data for 16 linear trapping transects located in 8 LTER burn treatment watersheds at Konza Prairie
+    
+      Andrew Hope
+      			110 Bushnell Hall, Division of Biology, Kansas State University
+			Manhattan, KS 66506  US
+      785-532-0155
+      ahope@ksu.edu
+      http://orcid.org/0000-0003-3814-2891
+    
+    
+      Konza LTER
+      http://www.konza.ksu.edu/
+    
+    2023-05-08
+    
+      
+        
+        Data set contains summaries (summer) of the number of individuals of each species of small mammal captured (relative abundance) on each transect. Each record contains date, treatment, transect, trap station, species, specimen number, recapture status, specimen disposition, external body measurements (where applicable), reproductive information, and miscellaneous associated comments. These sampling records are based on nightly captures during one 4-night trapping period in summer (June through August) for each of 16 permanent transects established on eight fire treatments (two transects per treatment). These treatments include two seasonal burn watersheds (SpB, SuB), two reversal burn watersheds (R1A, R20A), one annual burn watershed (1D), two 4-year burn watersheds (4B, 4F, and one 20-year burn watershed (20B). None of these treatments implement bison grazing.
+        
+      
+    
+    
+      Disturbance
+      Populations
+      Core Areas
+    
+    
+      Consumers
+      Section
+    
+    
+      community turnover
+      Consumers
+      Fire
+      genetic resources
+      helminth
+      Kansas
+      LTER-KNZ
+      Konza Prairie
+      Konza Prairie Biological Station
+      parasite
+      species composition
+      tick
+      relative abundance
+      reversal
+      prairie
+      shrews
+      shrubs
+      small mammals
+      seasonal
+      rodents
+      Station Keywords
+    
+    
+      
+        Data Policies
+        
+    Data Use Agreements: The Intellectual Rights within the metadata associated with each KNZ data set determines the exact data and metadata use agreement between the data user and the KNZ LTER site. KNZ LTER data and metadata may be released under the license: CC BY - Attribution (https://creativecommons.org/licenses/by/4.0/). This license lets others distribute, remix, tweak, and build upon KNZ work (even commercially), as long as the KNZ program is credited for the original creation. Alternatively, some KNZ LTER data and metadata may be released into the public domain: CC0 - No Rights Reserved (https://creativecommons.org/share-your-work/public-domain/cc0/). CC0 states that data are placed in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law. In either case, users of KNZ data are referred to the following guidelines: "The consumer of these data ("Data User" herein) has an ethical obligation to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or coauthorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you".
+        
+      
+    
+    
+      
+        http://lter.konza.ksu.edu/content/csm08-small-mammal-host-parasite-sampling-data-16-linear-trapping-transects-located-8-lter
+      
+    
+    https://doi.org/10.6073/pasta/f7bfb7226b093c817dc391c34a88b514
+      
+        1D: Ungrazed and scheduled prescribed burned annually in the spring.
+        
+          -96.5658
+          -96.5594
+          39.0841
+          39.0732
+        
+      
+      
+        20B: Ungrazed and scheduled prescribed burned every 20 years in the spring.
+        
+          -96.5808
+          -96.5741
+          39.0758
+          39.0693
+        
+      
+      
+        4B: Ungrazed and scheduled prescribed burned every 4 years in the spring
+        
+          -96.6035
+          -96.5924
+          39.0802
+          39.0712
+        
+      
+      
+        4F: Ungrazed and scheduled prescribed burned every 4 years in the spring
+        
+          -96.5733
+          -96.5691
+          39.0766
+          39.0711
+        
+      
+      
+        R1A: Ungrazed and scheduled unburned through 2000, scheduled prescribed burned annually in the spring beginning 2001.
+        
+          -96.6147
+          -96.6066
+          39.077
+          39.067
+        
+      
+      
+        R20A: Ungrazed and scheduled prescribed burned annually through 2000, scheduled prescribed burned every 20 years in the spring thereafter.
+        
+          -96.6145
+          -96.6055
+          39.0731
+          39.0664
+        
+      
+      
+        SpB: Ungrazed and scheduled prescribed burned annually in the spring.
+        
+          -96.5913
+          -96.5838
+          39.0756
+          39.0669
+        
+      
+      
+        SuB: Ungrazed and scheduled prescribed burned every 2 years in the summer
+        
+          -96.5694
+          -96.565
+          39.0768
+          39.0712
+        
+      
+      
+        
+          
+            2016-07-01
+          
+          
+            2021-12-31
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Neotominae
+                                    970153
+                                    
+                                    Genus
+                                    Peromyscus
+                                    Deer Mice
+                                    180275
+                                    
+                                    Species
+                                    Peromyscus leucopus
+                                    White-footed Deermouse
+                                    180278
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Soricomorpha
+                              709662
+                              
+                                Family
+                                Soricidae
+                                shrews
+                                179927
+                                
+                                  Subfamily
+                                  Soricinae
+                                  552347
+                                  
+                                    Genus
+                                    Blarina
+                                    American short-tailed shrews
+                                    179965
+                                    
+                                    Species
+                                    Blarina hylophaga
+                                    Elliot's Short-tailed Shrew
+                                    179969
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Arvicolinae
+                                    arvicoline rodents
+                                    552325
+                                    
+                                    Genus
+                                    Microtus
+                                    Meadow Mice
+                                    180296
+                                    
+                                    Subgenus
+                                    Microtus (Pedomys)
+                                    970517
+                                    
+                                    Species
+                                    Microtus ochrogaster
+                                    Prairie Vole
+                                    180312
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Neotominae
+                                    970153
+                                    
+                                    Genus
+                                    Neotoma
+                                    Packrats
+                                    180369
+                                    
+                                    Subgenus
+                                    Neotoma (Neotoma)
+                                    970520
+                                    
+                                    Species
+                                    Neotoma floridana
+                                    Eastern Woodrat
+                                    180372
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Neotominae
+                                    970153
+                                    
+                                    Genus
+                                    Peromyscus
+                                    Deer Mice
+                                    180275
+                                    
+                                    Species
+                                    Peromyscus maniculatus
+                                    Deer Mouse
+                                    180276
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Neotominae
+                                    970153
+                                    
+                                    Genus
+                                    Reithrodontomys
+                                    Harvest Mice
+                                    180340
+                                    
+                                    Subgenus
+                                    Reithrodontomys (Reithrodontomys)
+                                    970523
+                                    
+                                    Species
+                                    Reithrodontomys megalotis
+                                    Western Harvest Mouse
+                                    180343
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Neotominae
+                                    970153
+                                    
+                                    Genus
+                                    Reithrodontomys
+                                    Harvest Mice
+                                    180340
+                                    
+                                    Subgenus
+                                    Reithrodontomys (Reithrodontomys)
+                                    970523
+                                    
+                                    Species
+                                    Reithrodontomys montanus
+                                    Plains Harvest Mouse
+                                    180344
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Arvicolinae
+                                    arvicoline rodents
+                                    552325
+                                    
+                                    Genus
+                                    Microtus
+                                    Meadow Mice
+                                    180296
+                                    
+                                    Subgenus
+                                    Microtus (Pitymys)
+                                    970516
+                                    
+                                    Species
+                                    Microtus pinetorum
+                                    Woodland Vole
+                                    180314
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Muroidea
+                                  970141
+                                  
+                                    Family
+                                    Cricetidae
+                                    180274
+                                    
+                                    Subfamily
+                                    Sigmodontinae
+                                    New World rats
+                                    552329
+                                    
+                                    Genus
+                                    Sigmodon
+                                    Cotton Rats
+                                    180346
+                                    
+                                    Subgenus
+                                    Sigmodon (Sigmodon)
+                                    970528
+                                    
+                                    Species
+                                    Sigmodon hispidus
+                                    Hispid Cotton Rat
+                                    180349
+                                    
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Castorimorpha
+                                900100
+                                
+                                  Family
+                                  Heteromyidae
+                                  heteromyid rodents
+                                  180231
+                                  
+                                    Subfamily
+                                    Perognathinae
+                                    552353
+                                    
+                                    Genus
+                                    Chaetodipus
+                                    hispid pocket mice
+                                    552372
+                                    
+                                    Species
+                                    Chaetodipus hispidus
+                                    Hispid Pocket Mouse
+                                    552483
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Soricomorpha
+                              709662
+                              
+                                Family
+                                Soricidae
+                                shrews
+                                179927
+                                
+                                  Subfamily
+                                  Soricinae
+                                  552347
+                                  
+                                    Genus
+                                    Cryptotis
+                                    small-eared shrews
+                                    179970
+                                    
+                                    Species
+                                    Cryptotis parva
+                                    bee shrew
+                                    179971
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Metatheria
+                            179917
+                            
+                              Order
+                              Didelphimorphia
+                              marsupials
+                              552290
+                              
+                                Family
+                                Didelphidae
+                                opossoms
+                                179919
+                                
+                                  Subfamily
+                                  Didelphinae
+                                  552338
+                                  
+                                    Genus
+                                    Didelphis
+                                    large American opossums
+                                    179920
+                                    
+                                    Species
+                                    Didelphis virginiana
+                                    Virginia Opossum
+                                    179921
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Myomorpha
+                                Mice
+                                180273
+                                
+                                  Superfamily
+                                  Dipodoidea
+                                  952042
+                                  
+                                    Family
+                                    Dipodidae
+                                    jumping mice
+                                    180399
+                                    
+                                    Subfamily
+                                    Zapodinae
+                                    jumping mice
+                                    552331
+                                    
+                                    Genus
+                                    Zapus
+                                    Jumping Mice
+                                    180385
+                                    
+                                    Species
+                                    Zapus hudsonius
+                                    Meadow Jumping Mouse
+                                    180386
+                                    
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Rodentia
+                              rodents
+                              180130
+                              
+                                Suborder
+                                Sciuromorpha
+                                squirrels
+                                180134
+                                
+                                  Family
+                                  Sciuridae
+                                  squirrels
+                                  180135
+                                  
+                                    Subfamily
+                                    Xerinae
+                                    930206
+                                    
+                                    Genus
+                                    Ictidomys
+                                    lined ground squirrels
+                                    930216
+                                    
+                                    Species
+                                    Ictidomys tridecemlineatus
+                                    Thirteen-lined Ground Squirrel
+                                    930308
+                                    
+                                    
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+      
+        
+          Kingdom
+          Animalia
+          animals
+          202423
+          
+            Subkingdom
+            Bilateria
+            914154
+            
+              Infrakingdom
+              Deuterostomia
+              914156
+              
+                Phylum
+                Chordata
+                chordates
+                158852
+                
+                  Subphylum
+                  Vertebrata
+                  vertebrates
+                  331030
+                  
+                    Infraphylum
+                    Gnathostomata
+                    914179
+                    
+                      Superclass
+                      Tetrapoda
+                      914181
+                      
+                        Class
+                        Mammalia
+                        mammals
+                        179913
+                        
+                          Subclass
+                          Theria
+                          179916
+                          
+                            Infraclass
+                            Eutheria
+                            179925
+                            
+                              Order
+                              Lagomorpha
+                              lagomorphs
+                              180105
+                              
+                                Family
+                                Leporidae
+                                Hares
+                                180110
+                                
+                                  Genus
+                                  Sylvilagus
+                                  Cottontails
+                                  180119
+                                  
+                                    Species
+                                    Sylvilagus floridanus
+                                    Eastern Cottontail
+                                    180124
+                                  
+                                
+                              
+                            
+                          
+                        
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+    
+    
+      
+     Determine temporal and spatial variability in occurrence of rodent and shrew taxa and general assemblages of small mammals through tallgrass prairie and shrubland habitats on the Konza LTER as well as to determine the effects of long-term climate fluctuations, occurrence of fire, and frequency of fire, on distribution, abundance, richness, and diversity of communities of small mammals. Additionally, determine changes in genetic diversity of both small mammal populations and their associated ecto- and endo-parasites (including macro- and micro-parasites/pathogens) that will expand knowledge of community assembly, turnover, and interdependency of associated species in response to major environmental drivers.
+      
+    
+    
+      
+        
+      ongoing
+        
+      
+    
+    
+      Konza LTER
+      			Division of Biology
+			Manhattan, KS 66506  US
+      785-532-6729
+      knzlter@ksu.edu
+      http://lter.konza.ksu.edu
+    
+    
+    Environmental Data Initiativeinfo@edirepository.orghttps://edirepository.org0330j0z60Environmental Data Initiative
+    
+      
+        
+          
+            
+          Location of sampling stations: Ungrazed, annual burn: 001D; Ungrazed, 4 yr. burn: 004B, 004F; Ungrazed, unburned: 020B; Ungrazed annual 'seasonal' burn: SpB, SuB; Ungrazed reversal burn: R1A, R20A. 
+            
+            
+          Frequency of sampling: All sites are sampled in summer (June through August) at least two months following spring burning. Two linear transects occur within each of eight treatment watersheds, one for catch-and-release sampling, and one for specimen removal and archive. Transects for catch-and-release or removal were initially chosen randomly, but kept constant across years. Sampling consists of one period of four concurrent nights of trapping per linear transect per year. Four transects are sampled at once (40 traps per transect, totaling 160 total traps) for four consecutive sampling periods (total 16 transects sampled per year). Sampling periods alternate between four catch-and-release transects and four removal transects. Groups of four transects were chosen randomly, but thereafter groups are sampled consistently across years, and in the same order each year. 
+              
+            
+          Variables measured: Numbers of individuals for each species of small mammal captured are recorded on each trapline. Sex, reproductive condition and capture location of each individual are recorded at each capture. Age, based on pelage characteristics, is recorded at each capture. Body mass and measurements of individuals are recorded at first capture in each trapping period. Each capture on catch-and-release transects is provided a unique ear tag number. Each capture on removal transects is euthanized according to accepted and permitted protocols (IACUC permit #3579; Sikes et al., 2016: Guidelines of the American Society of Mammalogists for the use of wild mammals in research and education). Resulting specimens are processed through standardized procedures (Hope et al. In Prep) to retrieve all ecto-parasites, endo-parasites, tissues preserved for genetic analyses, study skins, skeletal material, internal reproductive condition, and tissues preserved for isotopic analyses. All specimens are preserved in perpetuity, with all associated parts, in the Museum of Southwestern Biology, or the Denver Museum of Nature &amp; Science. 
+                
+            
+          Methods: Traplines: Small mammals are trapped on two permanent linear transects in each of eight treatment units. Each transect consists of 20 stations with an inter-station distance of 15 m and terminal stations (1 and 20) at least 50 m from the boundary of the treatment unit. When possible, each transect was placed so that station 1 was in upland (shallow soil) and station 20 in lowland prairie (deeper soil), and so the two transects within a treatment unit would include about 16 stations in upland, 8 stations across limestone outcrops and 16 stations in lowland. Because of the topographic goals, the two transects within a treatment unit are not replicates of each other and the topographic goals were not always achieved. Stations 1, 5, 10, 15 and 20 on each transect are marked with tall stakes of galvanized conduit ad other stations are marked with short stakes. All stations are marked with fluorescent orange plastic surveyor flags at least once per year. 
+                  
+            
+          Trapping Procedures: Small mammals are trapped for 4 consecutive nights per transect during each trapping period. Two large Sherman live traps (7.6 by 8.9 by 22.9 cm) are placed within 1 m of the surveyor flag or conduit at each station. Traps are baited with a small amount (~2tbsp) cracked (non-viable) oats. All traps are set in the evening within two hours of dusk, and checked early each morning, but after the end of the nocturnal activity period. Four traplines are run simultaneously. Form of data output: See Metadata summary for CSM08 and example datasheet. 
+                    
+            
+          For additional metadata information see: http://lter.konza.ksu.edu/sites/default/files/DC.pdf For additional methods information see: http://lter.konza.ksu.edu/sites/default/files/MM.pdf
+            
+          
+        
+      
+    
+    
+      LTER: Manipulating drivers to assess grassland resilience
+      
+        Jesse Nippert
+        Principal Investigator
+      
+      NSF: DEB-2025849
+      
+        LTER: Long-Term Research on Grassland Dynamics- Assessing Mechanisms of Sensitivity and Resilience to Global Change
+        
+          Jesse Nippert
+          Principal Investigator
+        
+        
+          John Blair
+          Principal Investigator
+        
+        NSF: DEB-1440484
+      
+      
+        Konza Prairie LTER VI: Grassland Dynamics and Long-Term Trajectories of Change
+        
+          John Blair
+          Principal Investigator
+        
+        NSF: DEB-0823341
+      
+      
+        Konza Prairie LTER V: Long-Term Research on Grassland Dynamics and Global Change
+        
+          John Blair
+          Principal Investigator
+        
+        NSF: DEB-0218210
+      
+      
+        Long-Term Ecological Research in Tallgrass Prairie: The Konza Prairie LTER Program
+        
+          Alan Knapp
+          Principal Investigator
+        
+        NSF: DEB-9632851
+      
+      
+        Fire, Grazing, and Climatic Interactions in Tallgrass Prairie
+        
+          Alan Knapp
+          Principal Investigator
+        
+        NSF: DEB-9011662
+      
+      
+        The Role of Fire and Other Disturbances in Determining Ecosystem Processes and Patterns in the Konza Prairie, Kansas
+        
+          Donald Kaufman
+          Principal Investigator
+        
+        NSF: DEB-8514327
+      
+      
+        Long-Term Ecological Research in Tallgrass Prairie
+        
+          Richard Marzolf
+          Principal Investigator
+        
+        NSF: DEB-8012166
+      
+    
+    
+      CSM081
+      Data set contains summaries (summer) of the number of individuals of each species of small mammal captured (relative abundance) on each transect.
+      
+        CSM081.csv
+        164032
+        aac9f673b3a1510a575bdbdbdcb87ef7
+        8324442d50508234ac80f16d27b03b7e743274bb
+        
+          
+            1
+            0
+            \r\n
+            column
+            
+              ,
+              '
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-knz/99/5/df232a3f01b4d677df118f1de262e5e2
+          
+        
+      
+      
+        
+          DataCode
+          DataCode
+          Dataset code
+          string
+          
+            
+              
+                
+                  Dataset code
+                
+              
+            
+          
+        
+        
+          Rectype
+          Rectype
+          Record type
+          string
+          
+            
+              
+                
+                  Record type
+                
+              
+            
+          
+        
+        
+          RecYear
+          RecYear
+          Year of sample
+          
+            
+              
+                Year (YYYY)
+              
+              
+                real
+              
+            
+          
+        
+        
+          Date
+          Date
+          Date of sample
+          date
+          
+            
+              MM/DD/YYYY
+            
+          
+        
+        
+          Watershed
+          Watershed
+          Watershed name. Watershed (1D=annual burn replicate D; 4B=4-year burn replicate B; 4F=4-year burn replicate F; 20B=20-year burn replicate B; SpB=annual spring seasonal burn replicate B; SuB=annual or biennial summer seasonal burn replicate B; R1A=reversal burn schedule from 20-year to annual burn replicate A; R20A=reversal burn from annual to 20-year burn replicate A. Reversal treatments were initiated in 2000).
+          string
+          
+            
+              
+                
+                  Watershed name. Watershed (1D=annual burn replicate D; 4B=4-year burn replicate B; 4F=4-year burn replicate F; 20B=20-year burn replicate B; SpB=annual spring seasonal burn replicate B; SuB=annual or biennial summer seasonal burn replicate B; R1A=reversal burn schedule from 20-year to annual burn replicate A; R20A=reversal burn from annual to 20-year burn replicate A. Reversal treatments were initiated in 2000).
+                
+              
+            
+          
+        
+        
+          Transect
+          Transect
+          Transect line. N, S, E, W; total transect length is 285m.
+          string
+          
+            
+              
+                
+                  
+                    N
+                    north
+                  
+                  
+                    S
+                    south
+                  
+                  
+                    E
+                    east
+                  
+                  
+                    W
+                    west
+                  
+                
+              
+            
+          
+        
+        
+          TrapStation
+          TrapStation
+          Trap Station. numbered 1-20 per linear transect; each trap station is spaced 15m apart; two traps are set concurrently at each trap station; station 1 is always northernmost, station 20 is always southernmost for each transect.
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          Species
+          Species
+          Species code. PMMA=Peromyscus maniculatus; PMLE=Peromyscus leucopus; REME=Reithrodontomys megalotis; REMO=Reithrodontomys montanus; NEFL=Neotoma floridana; MIOC=Microtus ochrogaster; MIPI=Microtus pinetorum; SIHI=Sigmodon hispidus; CHHI=Chaetodipus hispidus; BLHA=Blarina hylophaga; CRPA=Cryptotis parva; SYFL=Sylvalagus floridanus; DIVI=Didelphis virginiana; ZAHU=Zapus hudsonius; ICTR=Ictidomys tridecemlineatus
+          string
+          
+            
+              
+                
+                  Species code. PMMA=Peromyscus maniculatus; PMLE=Peromyscus leucopus; REME=Reithrodontomys megalotis; REMO=Reithrodontomys montanus; NEFL=Neotoma floridana; MIOC=Microtus ochrogaster; MIPI=Microtus pinetorum; SIHI=Sigmodon hispidus; CHHI=Chaetodipus hispidus; BLHA=Blarina hylophaga; CRPA=Cryptotis parva; SYFL=Sylvalagus floridanus; DIVI=Didelphis virginiana; ZAHU=Zapus hudsonius; ICTR=Ictidomys tridecemlineatus
+                
+              
+            
+          
+        
+        
+          SpecimenNo1
+          SpecimenNo1
+          Specimen Number 1. 3-digit and 4-digit numbers correspond to ear tag numbers; NA=Not Applicable; generally assigned to escaped individuals.
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+          
+            .
+            Missing or Not Measured
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          SpecimenNo2
+          SpecimenNo2
+          Specimen Number 2. 3-digit and 4-digit numbers correspond to ear tag numbers; used in the event of multiple ear tags, where the higher number is Specimen Number 2.
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          VoucherNo
+          VoucherNo
+          Voucher Number. 6-digit number prefixed with NK (eg. NK123456) corresponds to specimen accession number for Museum of Southwestern Biology (University of New Mexico) where voucher specimen materials are being deposited.
+          string
+          
+            
+              
+                
+                  Voucher Number. 6-digit number prefixed with NK (eg. NK123456) corresponds to specimen accession number for Museum of Southwestern Biology (University of New Mexico) where voucher specimen materials are being deposited.
+                
+              
+            
+          
+        
+        
+          RecaptureStatus
+          RecaptureStatus
+          Recapture Status.
+          string
+          
+            
+              
+                
+                  
+                    Y
+                    Yes (recapture of same year)
+                  
+                  
+                    N
+                    No (new individual)
+                  
+                  
+                    A
+                    Annual (recapture from a previous year)
+                  
+                
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          Disposition
+          Disposition
+          Disposition. each treatment watershed has one catch-and-release transect (1D-E, 20B-E, 4B-W, 4F-W, R1A-S, R20A-W, SpB-S, SuB-E) and one specimen removal transect (1D-W, 20B-W, 4B-E, 4F-E, R1A-N, R20A-E, SpB-N, SuB-W); generally all specimens from catch-and-release transects are released unless they are found dead in trap or are otherwise collected for specimen voucher purposes; all specimens from removal transects become vouchers.
+          string
+          
+            
+              
+                
+                  Disposition. each treatment watershed has one catch-and-release transect (1D-E, 20B-E, 4B-W, 4F-W, R1A-S, R20A-W, SpB-S, SuB-E) and one specimen removal transect (1D-W, 20B-W, 4B-E, 4F-E, R1A-N, R20A-E, SpB-N, SuB-W); generally all specimens from catch-and-release transects are released unless they are found dead in trap or are otherwise collected for specimen voucher purposes; all specimens from removal transects become vouchers.
+                
+              
+            
+          
+        
+        
+          TotalLength
+          TotalLength
+          Total Length. measurement (mm) from tip of nose to tip of tail when specimen is laid flat on the back, not including tail tuft; brackets indicate inaccurate or incomplete measurement.
+          
+            
+              
+                millimeter
+              
+              0.1
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          TailLength
+          TailLength
+          Tail Length.measurement (mm) from base to tip of tail when tail is perpendicular to body laid on stomach, not including tail tuft; brackets indicate inaccurate or incomplete measurement.
+          
+            
+              
+                millimeter
+              
+              0.1
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          HFLength
+          HFLength
+          Hind Foot Length. measurement (mm) from heel to tip of longest toe nail on left hind foot.
+          
+            
+              
+                millimeter
+              
+              0.1
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          EarLength
+          EarLength
+          Ear Length. measurement (mm) from ear notch to furthest edge of pinna.
+          
+            
+              
+                millimeter
+              
+              0.1
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          Weight
+          Weight
+          Weight. measurement (g) of whole body mass.
+          
+            
+              
+                gram
+              
+              0.1
+              
+                real
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          Sex
+          Sex
+          Sex. M=Male; F=Female. comments col (M?=putative male, F?=putative female).
+          string
+          
+            
+              
+                
+                  Sex. M=Male; F=Female. comments col (M?=putative male, F?=putative female).
+                
+              
+            
+          
+        
+        
+          Age
+          Age
+          Age
+          string
+          
+            
+              
+                
+                  
+                    A
+                    Adult
+                  
+                  
+                    JUV
+                    Juvenile
+                  
+                  
+                    SA
+                    Youth adult
+                  
+                
+              
+            
+          
+          
+            NA
+            Missing or Not Measured
+          
+        
+        
+          ReprodCondition
+          ReprodCondition
+          Reproductive Condition. S=Scrotal male; NS=Non-scrotal male; C=vagina closed; O=vagina perforated; S=nipples small; E=nipples enlarged; N=non-lactating; L=lactating
+          string
+          
+            
+              
+                
+                  Reproductive Condition. S=Scrotal male; NS=Non-scrotal male; C=vagina closed; O=vagina perforated; S=nipples small; E=nipples enlarged; N=non-lactating; L=lactating
+                
+              
+            
+          
+        
+        
+          Comments
+          Comments
+          Relevant descriptive comments; OTB=old tail bob; NTB=new tail bob; other.
+          string
+          
+            
+              
+                
+                  Relevant descriptive comments; OTB=old tail bob; NTB=new tail bob; other.
+                
+              
+            
+          
+        
+      
+      2102
+    
+    
+      CSM082
+      Georeferenced data
+      
+        CSM082.csv
+        16897
+        aaf4b6ec40df7cc88670d0e1eb5a4b30
+        3d65291af023b2d6927c6d8b512e6c7531a567f2
+        
+          
+            1
+            0
+            \r\n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-knz/99/5/f2d065bdb1816ffae32f413e0b8afcfc
+          
+        
+      
+      
+        
+          DataCode
+          DataCode
+          Dataset Code
+          string
+          
+            
+              
+                
+                  Dataset Code
+                
+              
+            
+          
+        
+        
+          RecType
+          RecType
+          Record Type
+          string
+          
+            
+              
+                
+                  Record Type
+                
+              
+            
+          
+        
+        
+          ID
+          ID
+          ID
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+        
+        
+          Watershed
+          Watershed
+          Watershed name. Watershed name (1D=annual burn replicate D; 4B=4-year burn replicate B; 4F=4-year burn replicate F; 20B=20-year burn replicate B; SpB=annual spring seasonal burn replicate B; SuB=annual or biennial summer seasonal burn replicate B; R1A=reversal burn schedule from 20-year to annual burn replicate A; R20A=reversal burn from annual to 20-year burn replicate A. Reversal treatments were initiated in 2000).
+          string
+          
+            
+              
+                
+                  Watershed name. Watershed name (1D=annual burn replicate D; 4B=4-year burn replicate B; 4F=4-year burn replicate F; 20B=20-year burn replicate B; SpB=annual spring seasonal burn replicate B; SuB=annual or biennial summer seasonal burn replicate B; R1A=reversal burn schedule from 20-year to annual burn replicate A; R20A=reversal burn from annual to 20-year burn replicate A. Reversal treatments were initiated in 2000).
+                
+              
+            
+          
+        
+        
+          Transect
+          Transect
+          Transect. N, S, E, W; total transect length is 285m.
+          string
+          
+            
+              
+                
+                  Transect. N, S, E, W; total transect length is 285m.
+                
+              
+            
+          
+        
+        
+          TrapStation
+          TrapStation
+          Trap Station. numbered 1-20 per linear transect; each trap station is spaced 15m apart; two traps are set concurrently at each trap station; station 1 is always northernmost, station 20 is always southernmost for each transect.
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+        
+        
+          Latitude
+          Latitude
+          Latitude. Latitude downloaded from GPS
+          string
+          
+            
+              
+                
+                  Latitude. Latitude downloaded from GPS
+                
+              
+            
+          
+        
+        
+          Longitude
+          Longitude
+          Longitude. Longitude downloaded from GPS
+          string
+          
+            
+              
+                
+                  Longitude. Longitude downloaded from GPS
+                
+              
+            
+          
+        
+        
+          Elevation
+          Elevation
+          Elevation. Elevation downloaded from GPS
+          
+            
+              
+                meter
+              
+              
+                real
+              
+            
+          
+        
+      
+      320
+    
+  
+  
+    
+      
+        
+          
+        
+      
+    
+  

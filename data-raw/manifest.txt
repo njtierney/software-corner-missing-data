@@ -1,0 +1,6 @@
+Manifest file for knb-lter-knz.99.5.zip created on Fri Feb 23 02:31:32 UTC 2024
+CSM081.csv (164032 bytes)
+CSM082.csv (16897 bytes)
+knb-lter-knz.99.5.xml (144458 bytes)
+knb-lter-knz.99.5.txt (71722 bytes)
+knb-lter-knz.99.5.report.xml (53311 bytes)
