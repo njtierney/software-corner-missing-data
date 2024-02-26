@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.392">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Some ideas for exploring missing data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="part1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="part1_files/libs/quarto-html/quarto.js"></script>
+<script src="part1_files/libs/quarto-html/popper.min.js"></script>
+<script src="part1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="part1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="part1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="part1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="part1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="part1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="part1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="part1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="part1.md"><i class="bi bi-file-code"></i>Github (GFM)</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Some ideas for exploring missing data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Nicholas Tierney</p>
+<p>Infectious Disease Ecology and Modelling group</p>
+<p>Telethon Kids Institute, Perth, WA, Australia</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>When you do data analysis, you come across missing data. Because I felt so frustrated by how hard it was to handle and wrangle missing data, I wanted to make it easier. In my endeavours I have written two R packages, <code>visdat</code> and <code>naniar</code>, for exploring missing data, and several papers on the topic.</p>
+<p>The present goal is to share some ideas on exploring missing data, using <code>naniar</code>, and <code>visdat</code>. To that end, we will focus on four questions.</p>
+<ol type="1">
+<li>How do we start looking at missing data?</li>
+<li>How do we explore missingness in variables?</li>
+<li>How do we explore missingness relationships?</li>
+<li>How do we explore imputed values?</li>
+</ol>
+<p>We will explore questions 1 and 2 in this article. Questions 3 and 4 will be explored in the next issue.</p>
+<p>But first, let’s introduce ourselves to the data.</p>
+</section>
+<section id="the-data" class="level1">
+<h1>The data</h1>
+<p>The data used for this paper is measurements of rodents in Kansas, from <span class="citation" data-cites="hope2023">Hope (<a href="#ref-hope2023" role="doc-biblioref">2023</a>)</span>. The use of this data is inspired by Allison Horst’s “Exploring missing values in naniar” <a href="https://allisonhorst.shinyapps.io/missingexplorer/">shiny application</a>. In this paper we use a different, larger set of the data. For information on the metadata of the paper see <a href="http://lter.konza.ksu.edu/content/csm08-small-mammal-host-parasite-sampling-data-16-linear-trapping-transects-located-8-lter">here</a>. The data set provides various biometric length and weight measurements, for four species of rodents: the Eastern woodrat, Prairie vole, Western harvest mouse, and Deer mouse. Table <a href="#tbl-rodents-slice" class="quarto-xref">Table&nbsp;1</a> shows a snapshot of 6 selected rows of the data, which shows some of the missingness.</p>
+<div class="cell">
+<div id="tbl-rodents-slice" class="cell anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-rodents-slice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: A subset of the rodents dataset, containing measurements of various rodents, including: total length - from tail to nose, tail length, hind foot length, ear length, and weight. Each row represents a measurement of a given species of roden at a particular date. There are missing values represented by ‘NA’.
+</figcaption>
+<div aria-describedby="tbl-rodents-slice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">species</th>
+<th style="text-align: right;">total_length</th>
+<th style="text-align: right;">tail_length</th>
+<th style="text-align: right;">hind_foot_length</th>
+<th style="text-align: right;">ear_length</th>
+<th style="text-align: right;">weight</th>
+<th style="text-align: left;">sex</th>
+<th style="text-align: left;">age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">prairie vole</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">deer mouse</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">western harvest mouse</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">western harvest mouse</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">prairie vole</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016-07-21</td>
+<td style="text-align: left;">prairie vole</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">Juv</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="how-do-we-start-looking-at-missing-data" class="level1">
+<h1>How do we start looking at missing data?</h1>
+<p>To get an overview of the missing data, we can use the <code>visdat</code> package <span class="citation" data-cites="visdat">(<a href="#ref-visdat" role="doc-biblioref">Tierney 2017</a>)</span>, which was inspired by the work in <a href="https://setosa.io/blog/2014/08/03/csv-fingerprints/"><code>csv-fingerprint</code></a>, and functions like <code>missmap</code>, from <code>Amelia</code> <span class="citation" data-cites="amelia">(<a href="#ref-amelia" role="doc-biblioref">Honaker, King, and Blackwell 2011</a>)</span>. The key function for exploring missingness is <code>vis_miss()</code>, which visualises the missingness of a whole dataframe. <a href="#fig-vis-miss" class="quarto-xref">Figure&nbsp;1</a> gives an example where it displays the data as missing, or not missing, and provides information on the amount of missings in each column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-vis-miss" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vis-miss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="part1_files/figure-html/fig-vis-miss-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-vis-miss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An overview of missing data in the rodents dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We learn there is nearly 29% missing data overall, the missing data occurs in <code>total_length</code>, <code>tail_length</code>, <code>hind_foot_length</code>, <code>ear_length</code>, <code>weight</code>, and <code>age</code>, and mostly in <code>total_length</code> and <code>ear_length</code>.</p>
+<section id="exploring-subgroups-using-facetting-in-visdat" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-subgroups-using-facetting-in-visdat">Exploring subgroups: Using facetting in visdat</h2>
+<p>To see this plot split up by species, we can split up the <code>vis_miss</code> plots into several facetted plots via the <code>facet</code> argument. For example, in <a href="#fig-vis-miss-facet" class="quarto-xref">Figure&nbsp;2</a> we facet by the <code>species</code> variable. Visually, it appears that the missingness occurs in each species at roughly the same rate.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(rodents, <span class="at">facet =</span> species) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-vis-miss-facet" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vis-miss-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="part1_files/figure-html/fig-vis-miss-facet-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-vis-miss-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: An further overview of missing data in the rodents dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each species. We learn from this that the missingness seems to be the same across each species
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>There are other functions in the visdat package that focus on other types of data, for example, <code>vis_value()</code>, <code>vis_binary()</code>, and <code>vis_compare()</code>. To read more about the functions available in <code>visdat</code> see the vignette <a href="https://CRAN.R-project.org/package=visdat/vignettes/using_visdat.html">“Using visdat”</a>.</p>
+</section>
+</section>
+<section id="how-do-we-explore-missingness-in-variables" class="level1">
+<h1>How do we explore missingness in variables?</h1>
+<p>The <code>visdat</code> package provides overviews of data, whereas <code>naniar</code> provides a more comprehensive set of tools for missing data.</p>
+<section id="numerical-summaries-of-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-summaries-of-missing-values">Numerical summaries of missing values</h2>
+<p>Two convenient counters of complete values and missings are <code>n_miss()</code> and <code>n_complete()</code>. These work on both data frames and vectors, similar to <code>dplyr::n_distinct()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 617</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(rodents<span class="sc">$</span>tail_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 96</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">n_miss</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2013</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">n_miss</span>(rodents<span class="sc">$</span>tail_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 245</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">n_complete</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4944</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">n_complete</span>(rodents<span class="sc">$</span>tail_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 528</code></pre>
+</div>
+</div>
+<p>The functions <code>prop_miss_case()</code> and <code>pct_miss_case()</code> return numeric value describing the proportion or percent of missing values in the dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop_miss_case</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7477361</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pct_miss_case</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 74.77361</code></pre>
+</div>
+</div>
+<p>Similar to <code>pct_miss_case()</code>, <code>prop_miss_case()</code>, <code>pct_miss_var()</code> and <code>prop_miss_var()</code> returns the percent and proportion of variables that contain a missing value.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop_miss_var</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6666667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pct_miss_var</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.66667</code></pre>
+</div>
+</div>
+<p>The syntax for the other numerical summaries in <code>naniar</code> are <code>miss_</code>, and then <code>case</code>, or <code>var</code> to refer to cases or variables. There are then <code>summary</code>, <code>table</code> suffixes. For example, the <code>miss_case_summary()</code> function returns a numeric value that describes the number of missings in a given case (aka row), the percent of missings in that row.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_case_summary</span>(rodents) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+   case n_miss pct_miss
+  &lt;int&gt;  &lt;int&gt;    &lt;dbl&gt;
+1    63      6     66.7
+2    74      6     66.7
+3    77      6     66.7
+4    78      6     66.7
+5    79      6     66.7
+6    91      6     66.7</code></pre>
+</div>
+</div>
+<p>The <code>miss_case_table()</code> function tabulates the number of missing values in a case / row. Below, this shows the number of missings in a case:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_case_table</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  n_miss_in_case n_cases pct_cases
+           &lt;int&gt;   &lt;int&gt;     &lt;dbl&gt;
+1              0     195     25.2 
+2              1      48      6.21
+3              2     277     35.8 
+4              3      10      1.29
+5              4      14      1.81
+6              5      49      6.34
+7              6     180     23.3 </code></pre>
+</div>
+</div>
+<p>We can interpret this output as follows:</p>
+<ul>
+<li>195 cases with 0 missings, which comprises about 25% of the data,</li>
+<li>48 cases with 1 missing, these make up 6% of the data,</li>
+<li>277 cases with 2 missing, these make up 35% of the data,</li>
+<li>and so on.</li>
+</ul>
+<p><code>miss_var_summary()</code> returns the number of missing values in a variable, and the percent missing in that variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_var_summary</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  variable         n_miss pct_miss
+  &lt;chr&gt;             &lt;int&gt;    &lt;dbl&gt;
+1 total_length        569     73.6
+2 ear_length          530     68.6
+3 tail_length         245     31.7
+4 hind_foot_length    243     31.4
+5 weight              237     30.7
+6 age                 189     24.5
+7 date                  0      0  
+8 species               0      0  
+9 sex                   0      0  </code></pre>
+</div>
+</div>
+<p>Finally, the <code>miss_var_table()</code> function describes the number of missings in a variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_var_table</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  n_miss_in_var n_vars pct_vars
+          &lt;int&gt;  &lt;int&gt;    &lt;dbl&gt;
+1             0      3     33.3
+2           189      1     11.1
+3           237      1     11.1
+4           243      1     11.1
+5           245      1     11.1
+6           530      1     11.1
+7           569      1     11.1</code></pre>
+</div>
+</div>
+<p>We can interpret this as there being:</p>
+<ul>
+<li>3 variables with 0 missings, comprising 33% of variables in the dataset, and</li>
+<li>in the remaining variables similar patterns of missings, but not the exact same number of missing values.</li>
+</ul>
+</section>
+<section id="visualise-missingness-in-variables" class="level2">
+<h2 class="anchored" data-anchor-id="visualise-missingness-in-variables">Visualise missingness in variables</h2>
+<p>To specifically focus on the number or proportion of missings in each variable, we can use <code>gg_miss_var()</code>, as seen in <a href="#fig-gg-miss-var" class="quarto-xref">Figure&nbsp;3</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gg-miss-var" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gg-miss-var-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="part1_files/figure-html/fig-gg-miss-var-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-gg-miss-var-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This displays the number of missing values in each variable. We learn similar information to <a href="#fig-vis-miss" class="quarto-xref">Figure&nbsp;1</a>: total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age. Just like with <code>vis_miss()</code>, we can add in facets in these plots, via the <code>facet</code> argument, see <a href="#fig-gg-miss-var-facet" class="quarto-xref">Figure&nbsp;4</a>. We learn again, that the species have similar amounts of missing data in their variables. Sometimes it is useful to confirms the same piece of information!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(rodents, <span class="at">facet =</span> species, <span class="at">show_pct =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gg-miss-var-facet" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gg-miss-var-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="part1_files/figure-html/fig-gg-miss-var-facet-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-gg-miss-var-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Similar to the above plot but one subplot for each species. We learn that the missingness pattern is pretty similar for each species. We normalise using <code>show_pct = TRUE</code> as there are different numbers of observations in each species.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It feels like there are several patterns with the missingness - some variables tend to go missing at the same time. To explore these patterns we can use <code>gg_miss_upset()</code>, which produces an “upset” plot of the intersecting sets of missingness <span class="citation" data-cites="Conway2017">(<a href="#ref-Conway2017" role="doc-biblioref">Conway, Lex, and Gehlenborg 2017</a>)</span>. This can be thought of as a generalised way to visualise intersecting Venn diagrams.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gg-miss-upset" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gg-miss-upset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="part1_files/figure-html/fig-gg-miss-upset-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-gg-miss-upset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: An upset plot of 7 sets of missingness in the rodents data displaying a more nuanced depiction of the patterns of missingness in the data. The number of missings in each variable is seen on the bottom left bar plot. The bottom panel shows the different sets of co-occuring missingness. For example, the bottom left two dots show ear length and total length going missing together - corresponding to the bar plot above it, showing 278 missings. We learn that there are two dominant sets of missingness, where ear length and total length go missing, and then weight hind foot length, tail length, ear length and total length being missing.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>There are more visualisations available in <code>naniar</code> (each starting with <code>gg_miss_</code>) - you can see these in the <a href="https://cran.r-project.org/package=naniar/vignettes/naniar-visualisation.html">“Gallery of Missing Data Visualisations” vignette</a>. Most plots created with the <code>gg_miss</code> family all have a basic theme (except for <code>gg_miss_upset()</code>), but you can customise them by adding components like a standard ggplot object:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(rodents) <span class="sc">+</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Number of missing observations"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It is also worth noting that for every visualisation of missing data in <code>naniar</code>, there is an accompanying function to extract the data used in the plot. This is important as the plot should not return a dataframe - but we want to make the data available for use by the user so it isn’t locked into a plot.</p>
+<p>For example, <code>miss_var_summary()</code> provides the dataframe that <code>gg_miss_var()</code> is based on.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_var_summary</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  variable         n_miss pct_miss
+  &lt;chr&gt;             &lt;int&gt;    &lt;dbl&gt;
+1 total_length        569     73.6
+2 ear_length          530     68.6
+3 tail_length         245     31.7
+4 hind_foot_length    243     31.4
+5 weight              237     30.7
+6 age                 189     24.5
+7 date                  0      0  
+8 species               0      0  
+9 sex                   0      0  </code></pre>
+</div>
+</div>
+<p>Which also works with <code>group_by()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>rodents <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">miss_var_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Similarly, there is a <code>data_vis_miss()</code> function in the <code>visdat</code> package, which returns the data in the format that this visualisation requires.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_vis_miss</span>(rodents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The aim of these is to provide the data required to make these visualisations, so if people want to create their own more customised versions of <code>vis_miss()</code> or <code>gg_miss_var()</code> then they can do that.</p>
+</section>
+<section id="conslusion" class="level2">
+<h2 class="anchored" data-anchor-id="conslusion">Conslusion</h2>
+<p>This article has explored how to generate summaries and visualisations to help understand the missingness in your data set with the <code>visdat</code> and <code>naniar</code> packages. In the next issue, we will extend this to exploring and visualising missingness in multivariate settings, including bivariate missingness plots, identifying clusters of missingness and visualising imputed data.</p>
+</section>
+</section>
+<section id="references" class="level1 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Conway2017" class="csl-entry" role="listitem">
+Conway, Jake R., Alexander Lex, and Nils Gehlenborg. 2017. <span>“<span>UpSetR</span>: An <span>R</span> Package for the Visualization of Intersecting Sets and Their Properties.”</span> <em>Bioinformatics (Oxford, England)</em> 33 (18): 2938–40. <a href="https://doi.org/10.1093/bioinformatics/btx364">https://doi.org/10.1093/bioinformatics/btx364</a>.
+</div>
+<div id="ref-amelia" class="csl-entry" role="listitem">
+Honaker, James, Gary King, and Matthew Blackwell. 2011. <span>“<span>Amelia II</span>: A Program for Missing Data.”</span> <em>Journal of Statistical Software</em> 45 (1): 1–47. <a href="https://doi.org/10.18637/jss.v045.i07">https://doi.org/10.18637/jss.v045.i07</a>.
+</div>
+<div id="ref-hope2023" class="csl-entry" role="listitem">
+Hope, Andrew. 2023. <span>“<span>CSM08</span> <span>Small</span> Mammal Host-Parasite Sampling Data for 16 Linear Trapping Transects Located in 8 <span>LTER</span> Burn Treatment Watersheds at <span>Konza</span> <span>Prairie</span>.”</span> Environmental Data Initiative. <a href="https://doi.org/10.6073/PASTA/F7BFB7226B093C817DC391C34A88B514">https://doi.org/10.6073/PASTA/F7BFB7226B093C817DC391C34A88B514</a>.
+</div>
+<div id="ref-visdat" class="csl-entry" role="listitem">
+Tierney, Nicholas. 2017. <span>“<span class="nocase">visdat</span>: Visualising Whole Data Frames.”</span> <em>The Journal of Open Source Software</em> 2 (16): 355. <a href="https://doi.org/10.21105/joss.00355">https://doi.org/10.21105/joss.00355</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
