@@ -87,6 +87,16 @@ rodents <- rodents_clean %>%
       "western harvest mouse",
       "deer mouse"
     )
+  ) %>% 
+  mutate(
+    across(
+      c(
+        species,
+        sex,
+        age
+      ),
+      as_factor
+    )
   )
 
 dir_create("data")

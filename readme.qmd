@@ -1,6 +1,8 @@
 ---
 title: "Some ideas for exploring missing data"
-format: docx
+format: 
+  docx: default
+  html: default
 fig-format: retina
 bibliography: references.bib
 ---
@@ -12,11 +14,6 @@ Infectious Disease Ecology and Modelling group
 Telethon Kids Institute, Perth, WA, Australia
 
 ```{r}
-#| include: false
-rodents <- read_csv("data/rodents.csv")
-```
-
-```{r}
 #| label: load-pkgs
 options(tidyverse.quiet = TRUE)
 library(tidyverse)
@@ -25,6 +22,11 @@ library(naniar)
 library(knitr)
 ```
 
+
+```{r}
+#| include: false
+rodents <- read_csv("data/rodents.csv")
+```
 
 # Introduction
 
@@ -35,7 +37,7 @@ The goal of this article is to share some condensed ideas on exploring missing d
 1.  How do we start looking at missing data?
 2.  How do we explore missingness in variables?
 3.  How do we explore missingness relationships?
-4.  How do we explore imputed values
+4.  How do we explore imputed values?
 
 But first, let's introduce ourselves to the data.
 
@@ -59,7 +61,7 @@ To get an overview of the missing data, we can use the `visdat` package [@visdat
 
 ```{r}
 #| label: fig-vis-miss
-#| fig-height: 3
+#| fig-height: 5
 #| fig-cap: "An overview of missing data in the rodents dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age."
 vis_miss(rodents)
 ```
@@ -72,7 +74,6 @@ To see this plot split up by species, we can split up the `vis_miss` plots into 
 
 ```{r}
 #| label: fig-vis-miss-facet
-#| fig-height: 3
 #| fig-cap: "An further overview of missing data in the rodents dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each species. We learn from this that the missingness seems to be the same across each species"
 vis_miss(rodents, facet = species) 
 ```
@@ -175,18 +176,18 @@ To specifically focus on the number or proportion of missings in each variable, 
 
 ```{r}
 #| label: fig-gg-miss-var
-#| fig-height: 1.5
-#| fig-width: 3
+#| fig-height: 3
+#| fig-width: 5
 #| fig-cap: "Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age."
 gg_miss_var(rodents)
 ```
 
-This displays the number of missing values in each variable. We learn similar information to Figure @fig-vis-miss: total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age. Just like with `vis_miss()`, we can add in facets in these plots, via the `facet` argument, see @fig-gg-miss-var-facet. We learn again, that the species have similar amounts of missing data in their variables. While this confirms the same piece of information, it is useful.
+This displays the number of missing values in each variable. We learn similar information to @fig-vis-miss: total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age. Just like with `vis_miss()`, we can add in facets in these plots, via the `facet` argument, see @fig-gg-miss-var-facet. We learn again, that the species have similar amounts of missing data in their variables. Sometimes it is useful to confirms the same piece of information!
 
 ```{r}
 #| label: fig-gg-miss-var-facet
-#| fig-height: 2.5
-#| fig-width: 4
+#| fig-height: 7
+#| fig-width: 6
 #| fig-cap: "Similar to the above plot but one subplot for each species. We learn that the missingness pattern is pretty similar for each species. We normalise using `show_pct = TRUE` as there are different numbers of observations in each species."
 
 gg_miss_var(rodents, facet = species, show_pct = TRUE)
@@ -236,7 +237,6 @@ data_vis_miss(rodents)
 
 The aim of these is to provide the data required to make these visualisations, so if people want to create their own more customised versions of `vis_miss()` or `gg_miss_var()` then they can do that.
 
-
 # How to explore missingness relationships?
 
 We can identify key missing variables using `vis_miss()`, `gg_miss_var()`, and `gg_miss_upset()`, but for further exploration, we need to explore the relationship amongst the variables in this data:
@@ -253,7 +253,7 @@ We can identify key missing variables using `vis_miss()`, `gg_miss_var()`, and `
 
 ## Exploring using bivariate plots
 
-Let's say that we want to explore the relationship between tail length and ear length.Figure @fig-example-geom-point shows a scatter plot of tail length and ear length.
+Let's say that we want to explore the relationship between tail length and ear length. @fig-example-geom-point shows a scatter plot of tail length and ear length.
 
 ```{r}
 #| label: fig-example-geom-point
@@ -295,8 +295,8 @@ Being a proper ggplot geom, it supports all of the standard features of ggplot2,
 ```{r}
 #| label: fig-ggmissing-facet
 #| echo: true
-#| fig-width: 4
-#| fig-height: 3
+#| fig-width: 6
+#| fig-height: 9
 #| fig-cap: "A faceted version of the improved tail length against ear length plot where each species is split out into its own subplot."
 
 ggplot(rodents, 
@@ -349,7 +349,7 @@ To better understand these relationships, we would recommend exploring using par
 
 # How do we explore imputed values?
 
-Using the [`simputation`](https://cran.r-project.org/package=simputation) package, we impute values for tail_length using the `impute_lm()` function, then visualise the data, as seen in @fig-simpute-invisible.
+The [`simputation`](https://cran.r-project.org/package=simputation) package provides a nice interface to imputation. We will impute values for tail_length using the `impute_lm()` function, then visualise the data, as seen in @fig-simpute-invisible.
 
 ```{r}
 #| label: fig-simpute-invisible
@@ -363,18 +363,16 @@ library(simputation)
 library(dplyr)
 
 rodents %>%
-  impute_lm(tail_length ~ weight + age) %>%
+  impute_lm(tail_length ~ species + age) %>%
   ggplot(aes(x = weight,
              y = tail_length)) + 
   geom_point()
   
 ```
 
-Note that we no longer get any warnings regarding missing observations - because they are all imputed! But this comes at a cost: we also no longer have information about where the imputations are - they are now sort of invisible.
+We don't get any warnings regarding missing observations - because they are all imputed! However this comes at a cost: we don't know where the imputations are - they are now sort of invisible. 
 
-We can track a copy of the missing data locations by using the function `nabular()`, which binds another dataset to the current one which notes the locations of the missing data. 
-This is a really important idea with `naniar`, but to keep it brief, for each column with missing values, a new column is created to help identify misingness. 
-For example, a new column called `ear_length_NA` is created:
+We can track a copy of the missing data locations by using the function `nabular()`, which binds another dataset to the current one which notes the locations of the missing data. "Nabular" data is a really important idea in `naniar`, but to keep it brief, for each column with missing values, a new column is created to help identify misingness.  For example, a new column called `ear_length_NA` is created:
 
 ```{r}
 nabular(rodents) |> 
@@ -382,69 +380,72 @@ nabular(rodents) |>
   head()
 ```
 
-The key takeaway here is that there is now a copy of the data bound to it, with each column ending in `_NA`, and the values either being "NA" for missing, or "!NA" for not missing. For more details on the theory underlying this, and the benefits of this, we recommend reading our paper, "Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations" [@Tierney2023].
+The key takeaway here is there is now a copy of the data bound to it, with each column ending in `_NA`, and the values either being "NA" for missing, or "!NA" for not missing. For more details on the ideas underlying this, and the benefits, we recommend reading our paper, "Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations" [@Tierney2023].
 
-Using the shadow matrix to keep track of where the missings are, you can actually keep track of the imputations, colouring by what was previously missing in tail_length. For example, let's create the nabular data, then impute the data and plot it in @fig-simpute-visible-lm.
+Using the shadow matrix to keep track of where the missings are, you can actually keep track of the imputations, colouring by what was previously missing in tail_length. For example, let's create the nabular data, then impute the data using a random forst, and plot it in @fig-simpute-visible-lm.
 
 ```{r}
 #| label: fig-simpute-visible-lm
 #| echo: true
 #| fig-height: 3
 #| fig-width: 4
-#| fig-cap: "Regression imputed values of tail length in a scatterplot of tail length vs weight. Weight is on the X axis and tail_length is on the Y axis, and the points are coloured by whether they are imputed - 'NA' indicates a previously missing value that has been imputed. We learn that the regression imputation imputes the values approximately amongst the rest of the data, at the surface level, this appears to be a good imputation."
+#| fig-cap: "Linear model imputed values of tail length in a scatterplot of tail length vs weight. Weight is on the X axis and tail_length is on the Y axis, and the points are coloured by whether they are imputed - 'NA' indicates a previously missing value that has been imputed. We can see where imputations are added, but they are very concentrated"
 
-aq_lm_imputed <- rodents %>%
+rodents_nabular <- rodents %>%
   nabular() %>% 
-  as.data.frame() %>% 
-  impute_lm(tail_length ~ weight + age)
+  as.data.frame()
 
-ggplot(aq_lm_imputed,
+rodents_lm_tail_imputed <- rodents_nabular %>% 
+  impute_lm(tail_length ~ species + date) %>% 
+  impute_lm(weight ~ tail_length + species + date)
+
+ggplot(rodents_lm_tail_imputed,
          aes(x = weight,
              y = tail_length,
              colour = tail_length_NA)) + 
-  geom_point() + 
+  geom_point(alpha = 0.5) + 
   scale_colour_brewer(palette = "Dark2")
   
 ```
 
-Ah, we learn something important here - there aren't many imputations at all! This is because we are imputing tail length with weight and age, which are also missing at similar rates. We can check this by doing just a plot using `vis_miss()` with only tail length, weight, and age.
+The `simputation` package has a nice option to add residual noise to the imputations - in this case we can add some normal noise to the observations, where the residuals are draws with replacement from the model residuals. This gives us much greater variation in the imputations. For comparison to other naive approaches, we will also add mean imputation for comparison
+
+Importantly, we can actually compare the two methods as below. This first imputes the data using the residual method, then rowbinds the two datasets together, creating a column called "imputation_type", which records which type of imputation was used, either "add_residual" or "no_residual":
 
 ```{r}
-rodents %>% 
-  select(
-    tail_length,
-    weight,
-    age
-  ) %>% 
-  vis_miss()
-```
+rodents_lm_tail_imputed_res <- rodents_nabular %>% 
+  impute_lm(tail_length ~ species + date, add_residual = "observed") %>% 
+  impute_lm(weight ~ tail_length + species + date, add_residual = "observed")
 
-We can resolve this by first imputing weight and age separately, then imputing tail length from weight and age.
-
-Let's contrast this to how poor imputing just the mean value is, using `impute_mean_all()` in @fig-simpute-visible-mean.
-
-```{r}
-#| label: fig-simpute-visible-mean
-#| echo: true
-#| fig-height: 3
-#| fig-width: 4
-#| fig-cap: "The same plot as above, but using mean imputation. We learn that mean imputation places the imputed values all at a single point, which does not represent the variation we see in the data."
-
-aq_mean_imputed <- rodents %>%
+rodents_mean_imputed <- rodents %>%
   nabular() %>% 
   as.data.frame() %>% 
   impute_mean_all()
 
-head(aq_mean_imputed)
+rodents_imputed_comparison <- bind_rows(
+  add_residual = rodents_lm_tail_imputed_res,
+  no_residual = rodents_lm_tail_imputed,
+  mean_imp = rodents_mean_imputed,
+  .id = "imputation_type"
+) %>% as_tibble()
 
-ggplot(aq_mean_imputed,
-       aes(x = Temp,
-             y = tail_length,
-             colour = tail_length_NA)) + 
-  geom_point() + 
-  scale_colour_brewer(palette = "Dark2")
+rodents_imputed_comparison
 ```
 
+We can see see the two different imputation methods side by side in @imputed-comparison.
+
+```{r}
+#| label: imputed-comparison
+#| fig-cap: "Comparing imputation methods of tail length in a scatterplot of tail length vs weight. Weight is on the X axis and tail_length is on the Y axis, and the points are coloured by whether they are imputed - 'NA' indicates a previously missing value that has been imputed. We learn that mean imputation provides imputations that are not representative, linear models with no residuals are representative of the data but very concentrated, and adding residuals adds much more variation to your data."
+
+ggplot(rodents_imputed_comparison,
+         aes(x = weight,
+             y = tail_length,
+             colour = tail_length_NA)) + 
+  geom_point(alpha = 0.5) + 
+  scale_colour_brewer(palette = "Dark2") + 
+  facet_wrap(~imputation_type)
+```
 
 # Conclusion
 
