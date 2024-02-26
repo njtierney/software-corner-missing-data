@@ -1,0 +1,774 @@
+date,species,total_length,tail_length,hind_foot_length,ear_length,weight,sex,age
+2016-07-12,eastern woodrat,360,165,28,39,294.8,F,A
+2016-07-12,prairie vole,123,32,12,18,24.5,M,A
+2016-07-12,western harvest mouse,138,69,15,17,11.3,M,A
+2016-07-12,prairie vole,149,35,13,21,36.4,M,A
+2016-07-12,deer mouse,136,57,16,19,13.6,F,A
+2016-07-12,deer mouse,169,55,15,19,16.1,M,A
+2016-07-12,deer mouse,139,55,15,19,17.9,M,A
+2016-07-12,deer mouse,136,57,14,19,14.5,F,A
+2016-07-13,eastern woodrat,331,136,27,37,196.3,F,A
+2016-07-13,eastern woodrat,339,159,28,37,318.2,M,A
+2016-07-13,prairie vole,160,35,15,20,49.6,F,A
+2016-07-13,prairie vole,134,29,14,19,25.1,F,SA
+2016-07-13,western harvest mouse,146,65,15,17,14,M,A
+2016-07-13,western harvest mouse,141,63,14,16,16.3,M,A
+2016-07-13,prairie vole,142,31,14,18,36.8,F,A
+2016-07-13,western harvest mouse,139,64,13,17,9.8,F,SA
+2016-07-13,western harvest mouse,143,65,14,16,12,M,A
+2016-07-13,prairie vole,111,25,13,17,14.3,F,SA
+2016-07-13,western harvest mouse,142,66,14,17,12,F,A
+2016-07-13,deer mouse,141,60,15,19,17.6,M,A
+2016-07-13,prairie vole,141,27,16,19,31.2,M,A
+2016-07-13,prairie vole,146,32,15,17,34.7,F,A
+2016-07-13,deer mouse,148,57,17,18,16.3,M,A
+2016-07-13,deer mouse,143,59,17,19,21.5,M,A
+2016-07-13,deer mouse,143,55,16,19,15.6,M,A
+2016-07-13,prairie vole,140,29,13,20,35.5,F,A
+2016-07-14,eastern woodrat,325,143,27,37,162.7,F,A
+2016-07-14,prairie vole,155,35,15,19,41.1,M,A
+2016-07-14,western harvest mouse,136,66,15,17,9.6,F,A
+2016-07-14,prairie vole,149,33,15,19,35.6,F,A
+2016-07-14,western harvest mouse,143,69,14,17,10.3,M,A
+2016-07-14,western harvest mouse,146,66,14,17.5,11.7,M,A
+2016-07-14,prairie vole,111,29,14,18,15.1,F,SA
+2016-07-14,western harvest mouse,152,69,14,17,12.4,M,A
+2016-07-14,prairie vole,155,36,16,20,37.4,M,A
+2016-07-14,deer mouse,136,55,18,19,15.3,F,A
+2016-07-14,deer mouse,153,61,17,20,20.7,M,A
+2016-07-14,prairie vole,148,36,16,18,36.2,M,A
+2016-07-15,eastern woodrat,278,132,25,38,131,F,A
+2016-07-15,prairie vole,125,30,12,19,24.2,M,JUV
+2016-07-15,prairie vole,130,34,13,20,22.2,F,JUV
+2016-07-15,western harvest mouse,134,69,14,17,10.9,M,A
+2016-07-15,western harvest mouse,145,76,13,17,11.5,M,A
+2016-07-15,prairie vole,99,22,10,18,10.8,M,JUV
+2016-07-15,prairie vole,150,34,14,20,34.5,F,A
+2016-07-15,prairie vole,147,40,12,20,31.1,M,A
+2016-07-20,western harvest mouse,NA,66,16,13,10,M,A
+2016-07-20,deer mouse,NA,56,19,14,16,M,A
+2016-07-20,deer mouse,NA,60,19,14,19,M,A
+2016-07-20,western harvest mouse,NA,62,16,12,11,M,A
+2016-07-20,deer mouse,NA,61,20,14,16,F,A
+2016-07-20,western harvest mouse,NA,63,17,13,11,F,A
+2016-07-20,prairie vole,NA,29,18,13,18,F,Juv
+2016-07-20,western harvest mouse,NA,72,17,14,12,M,A
+2016-07-20,western harvest mouse,NA,62,16,13,11,F,A
+2016-07-20,prairie vole,NA,33,20,NA,47,F,A
+2016-07-20,prairie vole,NA,30,21,13,33,F,A
+2016-07-20,prairie vole,142,31,19,10,39.4,F,A
+2016-07-20,western harvest mouse,134,51,17,14,15,M,A
+2016-07-21,western harvest mouse,NA,60,17,13,10.5,F,A
+2016-07-21,deer mouse,NA,62,18,14,17.5,M,A
+2016-07-21,deer mouse,NA,57,18,14,13.5,F,A
+2016-07-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-21,deer mouse,NA,58,19,14,16.5,M,A
+2016-07-21,deer mouse,NA,62,19,14,18.5,M,A
+2016-07-21,deer mouse,NA,59,20,14,14,M,A
+2016-07-21,prairie vole,NA,34,20,13,34,F,A
+2016-07-21,deer mouse,NA,58,20,14,16,F,A
+2016-07-21,deer mouse,NA,58,19,14,17,M,A
+2016-07-21,western harvest mouse,NA,67,12,13,10.5,M,A
+2016-07-21,prairie vole,NA,37,21,NA,28,F,A
+2016-07-21,western harvest mouse,NA,73,12,13,12,M,A
+2016-07-21,western harvest mouse,NA,62,12,12,9.5,M,A
+2016-07-21,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-21,prairie vole,NA,32,20,NA,30,F,A
+2016-07-21,deer mouse,NA,62,19,NA,17.5,F,A
+2016-07-21,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-21,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-21,prairie vole,NA,26,18,NA,18,M,Juv
+2016-07-21,western harvest mouse,NA,72,18,13,12,M,A
+2016-07-21,prairie vole,NA,34,20,NA,42,F,A
+2016-07-21,deer mouse,NA,58,19,15,19,M,A
+2016-07-21,prairie vole,NA,36,22,NA,39,M,A
+2016-07-21,prairie vole,NA,34,20,NA,40,M,A
+2016-07-21,prairie vole,145,33,21,13,37.5,M,A
+2016-07-21,prairie vole,NA,NA,NA,NA,NA,F,A
+2016-07-21,western harvest mouse,147,71,20,15,11,F,A
+2016-07-21,prairie vole,140,34,19,10,41,M,A
+2016-07-22,prairie vole,NA,31,19,NA,30,M,A
+2016-07-22,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,33,20,NA,37,M,A
+2016-07-22,prairie vole,NA,34,20,NA,38,F,A
+2016-07-22,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,38,20,NA,40,M,A
+2016-07-22,deer mouse,NA,60,19,15,17,F,A
+2016-07-22,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,32,19,NA,25,F,A
+2016-07-22,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-22,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,33,19,NA,44,F,A
+2016-07-22,prairie vole,NA,35,19,NA,40,M,A
+2016-07-22,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,30,11,19,25,M,A
+2016-07-22,western harvest mouse,NA,75,18,12,10,M,A
+2016-07-22,western harvest mouse,NA,71,12,13,12,M,A
+2016-07-22,prairie vole,NA,30,20,NA,34,F,A
+2016-07-22,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,27,18,NA,18,M,SA
+2016-07-22,western harvest mouse,NA,70,17,12,12.5,M,A
+2016-07-22,western harvest mouse,NA,68,17,12,11,M,A
+2016-07-22,western harvest mouse,NA,68,17,13,9,M,A
+2016-07-22,western harvest mouse,NA,69,16,12,13,M,A
+2016-07-22,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-22,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-22,western harvest mouse,NA,59,11,12,9.5,F,A
+2016-07-22,prairie vole,NA,35,19,NA,41,M,A
+2016-07-22,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,37,19,NA,48,M,A
+2016-07-22,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-22,prairie vole,145,34,20,12,29,M,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,35,19,NA,48,F,A
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,38,19,NA,38,M,A
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,34,18,NA,36,M,A
+2016-07-23,prairie vole,NA,40,20,NA,45,M,A
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,65,16,NA,10,M,A
+2016-07-23,prairie vole,NA,28,17,NA,10,F,Juv
+2016-07-23,deer mouse,NA,63,19,NA,15,F,A
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,26,17,NA,12,M,Juv
+2016-07-23,western harvest mouse,NA,70,16,NA,11,M,A
+2016-07-23,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,61,15,NA,8,F,SA
+2016-07-23,western harvest mouse,NA,65,16,14,8,M,SA
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,70,17,NA,12,F,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,32,18,NA,NA,M,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,68,18,NA,14,F,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,72,16,NA,13.5,M,A
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,66,18,NA,10,M,A
+2016-07-23,western harvest mouse,NA,68,16,NA,12,M,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,western harvest mouse,NA,72,16,NA,12,M,A
+2016-07-23,prairie vole,NA,NA,18,NA,31,F,A
+2016-07-23,prairie vole,NA,33,18,NA,41,M,A
+2016-07-23,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2016-07-23,deer mouse,NA,58,19,NA,15,F,A
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,NA,NA,NA,NA,NA,N,NA
+2016-07-23,prairie vole,112,26,19,10,17,M,JUV
+2016-07-23,prairie vole,129,33,18,9,29,M,A
+2016-07-26,deer mouse,150,71,17,21,19,M,A
+2016-07-26,deer mouse,148,66,15,20,17.4,M,A
+2016-07-26,deer mouse,157,61,17,20,17.8,F,A
+2016-07-26,prairie vole,128,28,14,20,22.6,F,JUV
+2016-07-26,prairie vole,149,39,15,21,43,F,SA
+2016-07-26,western harvest mouse,143,73,14,18,13,M,A
+2016-07-27,deer mouse,154,65,16,19,17.2,F,A
+2016-07-27,prairie vole,130,31,16,20,26.1,F,JUV
+2016-07-27,deer mouse,142,57,16,18,15.8,M,A
+2016-07-27,deer mouse,147,62,15,19,18.2,M,A
+2016-07-27,deer mouse,151,62,16,19,17.6,M,A
+2016-07-27,western harvest mouse,145,74,15,18,14.2,M,A
+2016-07-27,deer mouse,149,62,16,20,23.1,M,A
+2016-07-27,prairie vole,115,27,14,20,23.2,F,JUV
+2016-07-27,prairie vole,145,36,15,20,33.8,M,A
+2016-07-27,prairie vole,149,39,16,20,49.7,F,A
+2016-07-27,western harvest mouse,141,70,14,17,10.9,F,A
+2016-07-28,deer mouse,148,69,16,20,15.7,M,A
+2016-07-28,deer mouse,159,71,15,20,18.5,M,A
+2016-07-28,deer mouse,NA,NA,NA,NA,NA,F,A
+2016-07-28,prairie vole,144,37,15,20,40.1,M,A
+2016-07-28,prairie vole,160,41,14,20,43.3,F,A
+2016-07-28,eastern woodrat,320,157,28,40,193.9,F,A
+2016-07-28,western harvest mouse,152,73,15,18,14.2,F,A
+2016-07-29,prairie vole,150,36,14,21,37,F,A
+2016-07-29,deer mouse,146,60,14,20,18.7,M,A
+2016-07-29,prairie vole,133,33,14,19,24.4,F,SA
+2016-07-29,prairie vole,119,29,13,20,21.8,F,JUV
+2016-07-29,prairie vole,164,44,14,21,42,M,A
+2016-07-29,western harvest mouse,139,71,15,18,12.8,M,A
+2016-08-02,eastern woodrat,NA,NA,NA,NA,265,M,A
+2016-08-02,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2016-08-02,eastern woodrat,NA,NA,NA,NA,300,F,A
+2016-08-02,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-02,eastern woodrat,NA,NA,NA,NA,NA,M,A
+2016-08-02,western harvest mouse,NA,NA,NA,NA,10,M,A
+2016-08-02,deer mouse,NA,NA,NA,NA,19,M,A
+2016-08-02,deer mouse,NA,NA,NA,NA,14,F,A
+2016-08-02,eastern woodrat,NA,NA,NA,NA,210,M,A
+2016-08-03,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-03,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2016-08-03,deer mouse,NA,NA,NA,NA,14,F,A
+2016-08-03,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-03,western harvest mouse,NA,NA,NA,NA,12.5,M,A
+2016-08-03,deer mouse,NA,NA,NA,NA,20,M,A
+2016-08-04,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-04,prairie vole,NA,NA,NA,NA,44,M,A
+2016-08-04,western harvest mouse,NA,NA,NA,NA,12,M,A
+2016-08-04,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-04,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-04,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-04,deer mouse,NA,NA,NA,NA,16.5,F,A
+2016-08-04,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2016-08-04,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-05,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-05,prairie vole,NA,NA,NA,NA,NA,M,A
+2016-08-05,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-05,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-05,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-05,deer mouse,NA,NA,NA,NA,NA,N,NA
+2016-08-05,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2016-08-05,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2017-05-29,deer mouse,NA,58,19,13,16,M,A
+2017-05-29,deer mouse,NA,62,19,NA,19.5,F,A
+2017-05-29,deer mouse,NA,60,20,16,16.5,M,A
+2017-05-29,western harvest mouse,NA,22,17,NA,12,M,A
+2017-05-29,western harvest mouse,NA,NA,NA,NA,13.5,M,A
+2017-05-29,prairie vole,NA,20,15,10,36,M,A
+2017-05-29,deer mouse,NA,60,19,NA,15.5,M,A
+2017-05-29,prairie vole,NA,39,18,11,40,F,A
+2017-05-29,deer mouse,NA,63,18,14,17,M,A
+2017-05-30,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-05-30,deer mouse,NA,55,18,NA,17,M,A
+2017-05-30,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-05-30,western harvest mouse,NA,73,17,NA,13,M,A
+2017-05-30,western harvest mouse,NA,58,18,NA,12,F,SA
+2017-05-30,prairie vole,NA,30,18,NA,33,F,A
+2017-05-30,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,F,A
+2017-06-01,deer mouse,NA,61,18,NA,17,M,A
+2017-06-01,deer mouse,NA,55,18,NA,16.5,M,A
+2017-06-01,deer mouse,NA,61,19,NA,18,F,A
+2017-06-01,western harvest mouse,NA,70,17,NA,13,M,A
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,western harvest mouse,NA,74,16,NA,15,M,A
+2017-06-01,western harvest mouse,NA,NA,NA,NA,NA,F,SA
+2017-06-01,western harvest mouse,NA,69,17,NA,12,M,A
+2017-06-01,prairie vole,NA,NA,NA,NA,NA,F,A
+2017-06-01,prairie vole,NA,30,18,NA,29,M,A
+2017-06-01,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-01,deer mouse,NA,55,19,NA,16.5,F,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,58,18,NA,15,F,A
+2017-06-02,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,western harvest mouse,NA,73,17,NA,13,M,A
+2017-06-02,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2017-06-02,prairie vole,NA,NA,NA,NA,NA,M,A
+2017-06-02,deer mouse,NA,NA,NA,NA,NA,F,A
+2017-06-02,prairie vole,NA,33,20,NA,40,F,A
+2017-06-02,prairie vole,NA,33,18,NA,40,F,A
+2017-06-06,eastern woodrat,347,140,39,25,197.3,M,A
+2017-06-06,deer mouse,150,60,18,16,17.3,M,A
+2017-06-06,western harvest mouse,138,65,17,14,9.7,M,A
+2017-06-06,deer mouse,130,48,19,15,12.8,F,SA
+2017-06-06,deer mouse,133,48,17,19,15.3,F,A
+2017-06-07,western harvest mouse,NA,NA,NA,NA,NA,M,A
+2017-06-07,deer mouse,132,52,17,13,17.2,M,A
+2017-06-07,deer mouse,138,63,19,15,15.1,M,A
+2017-06-08,eastern woodrat,351,140,38,24,NA,F,A
+2017-06-08,prairie vole,135,30,20,11,32.8,M,A
+2017-06-08,deer mouse,150,49,17,13,12,F,SA
+2017-06-08,prairie vole,154,31,19,11,60.5,F,A
+2017-06-08,western harvest mouse,123,58,16,12,6.7,F,JUV
+2017-06-08,prairie vole,139,29,18,9,28.5,F,SA
+2017-06-08,prairie vole,137,26,17,7,33.5,M,A
+2017-06-08,deer mouse,142,60,18,13,16.3,F,A
+2017-06-08,deer mouse,136,53,19,14,15,M,SA
+2017-06-09,eastern woodrat,311,162,38,27,207.1,M,A
+2017-06-09,eastern woodrat,393,170,39,29,341.4,F,A
+2017-06-09,prairie vole,145,38,18,13,29.7,F,A
+2017-06-13,eastern woodrat,NA,115,32,NA,90,F,JUV
+2017-06-13,deer mouse,NA,62,19,NA,19,M,A
+2017-06-13,eastern woodrat,NA,138,32,NA,180,F,A
+2017-06-13,deer mouse,NA,57,18,NA,20,M,A
+2017-06-13,deer mouse,NA,61,17,NA,15,F,SA
+2017-06-13,deer mouse,NA,64,17,NA,23,M,A
+2017-06-14,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2017-06-14,prairie vole,NA,30,19,NA,52,F,A
+2017-06-14,deer mouse,NA,78,21,NA,NA,M,A
+2017-06-15,deer mouse,NA,54,18,NA,28,M,A
+2017-06-15,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2017-06-15,deer mouse,NA,53,18,NA,18.5,M,A
+2017-06-15,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-15,prairie vole,NA,34,21,NA,28,M,A
+2017-06-15,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-16,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-16,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2017-06-16,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-16,prairie vole,NA,26,19,NA,31,F,A
+2017-06-16,prairie vole,NA,29,19,NA,46,F,A
+2017-06-16,eastern woodrat,NA,143,37,NA,310,F,A
+2017-06-16,deer mouse,NA,NA,NA,NA,NA,M,A
+2017-06-16,deer mouse,NA,60,18,NA,16,M,A
+2017-06-16,western harvest mouse,NA,69,16,NA,13.5,M,A
+2017-06-16,prairie vole,NA,29,20,NA,31,M,A
+2017-06-16,prairie vole,NA,NA,NA,NA,NA,F,A
+2017-06-16,prairie vole,NA,31,19,NA,28,F,A
+2017-06-16,prairie vole,NA,31,20,NA,52,M,A
+2017-06-16,prairie vole,NA,39,20,NA,44,F,A
+2017-06-28,deer mouse,130,49,17,10,13.4,M,SA
+2017-06-28,prairie vole,153,34,19,11,35.7,F,A
+2017-06-28,deer mouse,138,54,29,14,13.2,M,A
+2017-06-28,deer mouse,131,42,19,14,18.5,M,A
+2017-06-28,deer mouse,148,68,18,15,15.7,M,A
+2017-06-28,deer mouse,157,64,18,16,15.2,F,SA
+2017-06-28,prairie vole,151,28,18,12,45.5,M,A
+2017-06-28,prairie vole,149,29,19,12,37.1,M,A
+2017-06-28,eastern woodrat,345,151,36,27,241.4,M,A
+2017-06-28,prairie vole,149,33,20,13,46.5,F,A
+2017-06-29,deer mouse,134,54,19,15,17.4,M,A
+2017-06-29,prairie vole,141,37,19,17,35.2,M,A
+2017-06-29,deer mouse,143,59,18,19,19.3,M,SA
+2017-06-29,deer mouse,143,54,18,14,15.7,M,SA
+2017-06-29,prairie vole,159,36,19,19,44.4,F,A
+2017-06-29,prairie vole,157,33,20,14,44,F,A
+2017-06-30,deer mouse,134,49,18,19,15.5,M,SA
+2017-06-30,prairie vole,152,33,21,16,56.8,F,A
+2017-06-30,prairie vole,119,23,17,12,16.9,F,JUV
+2017-06-30,prairie vole,121,24,19,12,29.5,F,SA
+2017-06-30,prairie vole,110,14,17,13,19,F,JUV
+2017-06-30,prairie vole,134,26,18,13,36.7,F,A
+2017-06-30,prairie vole,116,28,19,13,22.5,F,SA
+2017-06-30,prairie vole,164,33,20,13,44.6,M,A
+2018-07-10,deer mouse,NA,57,18,NA,13.5,F,A
+2018-07-10,deer mouse,NA,57,18,NA,15,M,A
+2018-07-10,deer mouse,NA,55,19,NA,14.6,F,A
+2018-07-10,deer mouse,NA,55,19,NA,14.6,F,A
+2018-07-10,eastern woodrat,NA,165,40,NA,300,F,A
+2018-07-10,eastern woodrat,NA,149,38,NA,280,F,A
+2018-07-11,deer mouse,NA,NA,NA,NA,NA,F,A
+2018-07-11,deer mouse,NA,57,20,NA,15,F,A
+2018-07-11,deer mouse,NA,58,18,NA,NA,M,A
+2018-07-11,deer mouse,NA,56,18,NA,17,N,NA
+2018-07-11,deer mouse,NA,NA,NA,NA,NA,F,A
+2018-07-11,eastern woodrat,NA,76,29,NA,49,F,J
+2018-07-12,deer mouse,NA,NA,NA,NA,NA,F,A
+2018-07-12,deer mouse,NA,NA,NA,NA,NA,F,A
+2018-07-12,deer mouse,NA,58,18,NA,16.8,M,A
+2018-07-12,deer mouse,NA,NA,NA,NA,17.2,M,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,F,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,M,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,M,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,M,A
+2018-07-13,deer mouse,135,59,9,19,13.3,M,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2018-07-13,eastern woodrat,NA,NA,NA,NA,NA,F,A
+2018-07-13,deer mouse,114,50,10,17,11.1,F,A
+2018-07-13,prairie vole,117,26,8,18,23.3,M,A
+2018-07-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2018-07-13,prairie vole,NA,NA,NA,NA,NA,N,NA
+2018-07-17,deer mouse,151,54,12,19,13.1,F,A
+2018-07-17,deer mouse,137,60,11,18,18.8,M,A
+2018-07-17,deer mouse,131,54,13,18,16.5,M,A
+2018-07-17,deer mouse,124,51,14,18,18.8,M,A
+2018-07-17,prairie vole,142,33,11,18,33.2,M,A
+2018-07-17,eastern woodrat,264,115,21,36,134.8,F,A
+2018-07-17,eastern woodrat,280,132,22,35,183.9,F,A
+2018-07-18,deer mouse,129,55,12,19,12.9,F,A
+2018-07-18,eastern woodrat,260,130,21,36,140.8,M,A
+2018-07-19,deer mouse,137,62,12,19,15.8,M,A
+2018-07-19,deer mouse,118,54,11,18,12.4,M,A
+2018-07-19,deer mouse,127,55,11,18,13,F,A
+2018-07-24,eastern woodrat,NA,148,37,NA,202,F,A
+2018-07-24,eastern woodrat,NA,135,34,NA,199,F,A
+2018-07-25,eastern woodrat,NA,135,37,NA,150,M,A
+2018-07-25,eastern woodrat,NA,148,36,NA,220,F,A
+2018-07-26,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2018-07-26,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2018-07-26,prairie vole,NA,NA,NA,NA,NA,N,NA
+2018-07-26,prairie vole,153,32,9,19,45.6,M,A
+2018-07-27,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2018-07-27,eastern woodrat,NA,158,40,NA,251,M,A
+2018-07-27,deer mouse,NA,59,19,NA,19,M,A
+2018-07-27,deer mouse,NA,NA,NA,NA,NA,M,A
+2018-08-01,deer mouse,131,54,12,18,12.4,F,A
+2018-08-02,eastern woodrat,337,141,30,40,226.4,F,A
+2018-08-02,eastern woodrat,342,153,21,39,199.6,M,A
+2018-08-03,eastern woodrat,298,131,21,31,144.2,F,A
+2019-06-04,eastern woodrat,339,151,38,28,258.3,F,A
+2019-06-05,eastern woodrat,244,99,35,25,87.1,F,NA
+2019-06-05,eastern woodrat,220,96,36,26,91.9,F,NA
+2019-06-05,eastern woodrat,236,104,35,27,99.5,F,NA
+2019-06-06,eastern woodrat,249,157,37,26,95.8,F,NA
+2019-06-06,eastern woodrat,372,165,42,29,390.8,M,NA
+2019-06-11,deer mouse,NA,60,19,NA,18,M,A
+2019-06-11,deer mouse,NA,51,19,NA,14,F,SA
+2019-06-11,deer mouse,NA,50,20,NA,15,M,A
+2019-06-11,deer mouse,NA,48,19,NA,14,M,A
+2019-06-11,deer mouse,NA,55,19,NA,14,F,A
+2019-06-11,deer mouse,NA,50,17,NA,18,M,A
+2019-06-12,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-12,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-12,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-12,deer mouse,NA,52,20,NA,13,F,A
+2019-06-12,deer mouse,NA,49,16,NA,14,M,A
+2019-06-12,deer mouse,NA,76,22,NA,25,M,A
+2019-06-12,deer mouse,NA,50,17,NA,16,M,SA
+2019-06-12,deer mouse,NA,54,17,NA,17,M,A
+2019-06-12,deer mouse,NA,59,18,NA,16,F,SA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,59,19,NA,16,M,A
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-13,deer mouse,NA,51,17,NA,13,F,A
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,55,18,NA,19,F,SA
+2019-06-14,eastern woodrat,NA,128,33,NA,150,F,SA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-14,deer mouse,NA,49,18,NA,14,M,A
+2019-06-20,prairie vole,131,29,19,14,25.3,M,SA
+2019-06-21,prairie vole,144,34,21,15,36,F,NA
+2019-06-21,eastern woodrat,324,150,43,30,178.3,M,SA
+2019-06-25,eastern woodrat,NA,117,34,NA,120,F,J
+2019-06-25,deer mouse,NA,51,18,NA,15,M,A
+2019-06-25,deer mouse,NA,61,19,NA,16,M,A
+2019-06-26,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-26,eastern woodrat,NA,117,34,NA,120,F,J
+2019-06-26,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-26,deer mouse,NA,53,17,NA,16,M,A
+2019-06-26,deer mouse,NA,53,17,NA,16,M,A
+2019-06-26,deer mouse,NA,57,19,NA,15,M,SA
+2019-06-26,deer mouse,NA,57,19,NA,15,M,SA
+2019-06-27,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-27,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-27,deer mouse,NA,56,19,NA,16,M,A
+2019-06-27,eastern woodrat,NA,113,34,NA,NA,F,J
+2019-06-27,eastern woodrat,NA,113,34,NA,NA,F,JUV
+2019-06-27,eastern woodrat,NA,143,44,NA,NA,M,SA
+2019-06-27,eastern woodrat,NA,143,44,NA,NA,M,SA
+2019-06-27,eastern woodrat,NA,113,35,NA,130,M,J
+2019-06-27,eastern woodrat,NA,113,35,NA,130,M,JUV
+2019-06-28,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-28,eastern woodrat,NA,134,39,NA,150,M,SA
+2019-06-28,deer mouse,NA,55,20,NA,16,F,A
+2019-06-28,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-28,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2019-06-28,deer mouse,NA,NA,NA,NA,NA,N,NA
+2019-06-28,eastern woodrat,NA,134,39,NA,150,M,SA
+2019-06-28,deer mouse,NA,55,20,NA,16,F,A
+2020-06-12,deer mouse,NA,54,18,NA,14,F,A
+2020-06-12,deer mouse,NA,56,18,NA,18,M,A
+2020-06-12,deer mouse,NA,52,18,NA,20,F,A
+2020-06-12,deer mouse,NA,50,16,NA,19,M,A
+2020-06-12,deer mouse,NA,47,19,NA,16,M,A
+2020-06-12,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-12,prairie vole,NA,39,22,NA,46,M,A
+2020-06-12,prairie vole,NA,35,19,NA,60,F,A
+2020-06-12,prairie vole,NA,27,19,NA,20,F,SA
+2020-06-12,western harvest mouse,NA,57,17,NA,9,M,A
+2020-06-12,prairie vole,NA,35,19,NA,25,F,SA
+2020-06-12,prairie vole,NA,30,19,NA,36,F,A
+2020-06-13,deer mouse,NA,56,20,NA,15,F,A
+2020-06-13,deer mouse,NA,50,19,NA,12,M,JUV
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,prairie vole,NA,30,20,NA,38,M,A
+2020-06-13,prairie vole,NA,31,20,NA,31,M,A
+2020-06-13,deer mouse,NA,51,18,NA,12,F,JUV
+2020-06-13,prairie vole,NA,31,24,NA,34,M,A
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,deer mouse,NA,61,21,NA,16,M,A
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,deer mouse,NA,53,18,NA,16,F,A
+2020-06-13,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-13,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-13,prairie vole,NA,34,20,NA,44,M,A
+2020-06-13,prairie vole,NA,22,18,NA,13,M,JUV
+2020-06-13,deer mouse,NA,50,20,NA,19,F,SA
+2020-06-13,deer mouse,NA,49,18,NA,18,M,A
+2020-06-13,prairie vole,NA,38,21,NA,41,M,A
+2020-06-13,prairie vole,NA,33,20,NA,52,F,A
+2020-06-13,prairie vole,NA,29,19,NA,19,M,SA
+2020-06-13,prairie vole,NA,28,20,NA,28,M,JUV
+2020-06-13,prairie vole,NA,39,21,NA,51,M,A
+2020-06-13,prairie vole,NA,33,20,NA,26,M,A
+2020-06-13,prairie vole,NA,30,20,NA,53,F,A
+2020-06-13,prairie vole,NA,23,19,NA,18,M,JUV
+2020-06-14,deer mouse,NA,41,16,NA,10,F,A
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,deer mouse,NA,49,18,NA,12,M,SA
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,deer mouse,NA,46,18,NA,18,M,A
+2020-06-14,deer mouse,NA,53,17,NA,11,F,JUV
+2020-06-14,prairie vole,NA,31,19,NA,41,M,A
+2020-06-14,prairie vole,NA,35,20,NA,36,M,A
+2020-06-14,deer mouse,NA,57,17,NA,17,M,A
+2020-06-14,prairie vole,NA,34,21,NA,40,F,A
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-14,prairie vole,NA,40,18,NA,40,F,A
+2020-06-14,deer mouse,NA,51,18,NA,15,F,A
+2020-06-14,deer mouse,NA,53,18,NA,15,F,A
+2020-06-14,prairie vole,NA,38,17,NA,45,F,A
+2020-06-14,prairie vole,NA,23,21,NA,26,M,A
+2020-06-14,prairie vole,NA,29,18,NA,21,M,JUV
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-14,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-14,western harvest mouse,NA,66,16,NA,9,M,A
+2020-06-14,prairie vole,NA,31,19,NA,41,F,A
+2020-06-14,prairie vole,NA,29,22,NA,19,M,SA
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-14,prairie vole,NA,39,20,NA,44,M,A
+2020-06-14,prairie vole,NA,21,19,NA,22,M,SA
+2020-06-14,prairie vole,NA,30,19,NA,48,F,A
+2020-06-14,prairie vole,NA,33,21,NA,38,F,A
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-14,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,34,20,NA,27,F,A
+2020-06-15,prairie vole,NA,38,20,NA,40,M,A
+2020-06-15,deer mouse,NA,64,19,NA,16,F,A
+2020-06-15,deer mouse,NA,51,18,NA,16,M,A
+2020-06-15,prairie vole,NA,30,19,NA,40,F,A
+2020-06-15,deer mouse,NA,64,20,NA,21,M,A
+2020-06-15,deer mouse,NA,53,19,NA,16,M,A
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,31,20,NA,53,F,A
+2020-06-15,prairie vole,NA,32,20,NA,30,F,A
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,25,19,NA,21,F,SA
+2020-06-15,deer mouse,NA,56,20,NA,19,M,SA
+2020-06-15,prairie vole,NA,23,19,NA,12,F,JUV
+2020-06-15,prairie vole,NA,22,19,NA,19,M,SA
+2020-06-15,prairie vole,NA,25,19,NA,14,M,JUV
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,NA,NA,NA,NA,N,NA
+2020-06-15,prairie vole,NA,32,20,NA,37,F,A
+2020-06-15,prairie vole,NA,27,19,NA,19,M,JUV
+2020-06-15,prairie vole,NA,32,19,NA,20,M,JUV
+2020-06-29,prairie vole,109,26,19,14,13.6,F,SA
+2020-06-29,deer mouse,136,55,20,16,13.3,F,A
+2020-06-29,prairie vole,110,30,18,10,14,F,JUV
+2020-06-29,prairie vole,141,41,20,15,26.3,F,A
+2020-06-29,deer mouse,130,54,20,15,13.1,M,A
+2020-06-29,prairie vole,137,34,20,16,30,M,A
+2020-06-29,deer mouse,132,55,22,17,14.6,M,SA
+2020-06-29,deer mouse,140,59,21,16,13.4,F,A
+2020-06-29,deer mouse,132,53,20,11,13.8,F,A
+2020-06-29,deer mouse,141,61,21,18,15.2,F,A
+2020-06-30,eastern woodrat,324,155,40,27,231.8,F,A
+2020-06-30,eastern woodrat,303,136,39,26,158.7,M,A
+2020-06-30,eastern woodrat,364,162,41,29,349.2,M,A
+2020-06-30,prairie vole,158,38,21,17,44.8,F,A
+2020-06-30,prairie vole,129,35,21,15,25.1,F,A
+2020-06-30,prairie vole,127,32,20,12,22.7,F,A
+2020-06-30,prairie vole,156,40,22,15,39.3,F,A
+2020-06-30,western harvest mouse,141,66,18,16,12,M,A
+2020-06-30,western harvest mouse,145,73,19,15,10.7,M,A
+2020-06-30,prairie vole,134,32,20,14,20.7,M,A
+2020-06-30,deer mouse,151,61,22,17,18.8,M,A
+2020-06-30,deer mouse,144,58,19,16,15.5,M,A
+2020-07-01,deer mouse,134,52,19,16,16.2,M,A
+2020-07-01,prairie vole,146,37,21,16,34.3,M,A
+2020-07-01,prairie vole,142,36,20,17,42.9,F,A
+2020-07-01,prairie vole,148,33,22,16,37,M,A
+2020-07-01,prairie vole,129,30,20,14,29.6,F,A
+2020-07-01,deer mouse,148,62,19,18,19.4,M,A
+2020-07-01,deer mouse,126,54,20,15,14.9,M,SA
+2020-07-01,prairie vole,121,27,19,15,23.8,N,NA
+2020-07-01,prairie vole,146,35,21,17,33.3,F,A
+2020-07-01,deer mouse,138,52,19,16,15.9,M,SA
+2020-07-01,eastern woodrat,288,132,41,27,141.9,M,SA
+2020-07-01,eastern woodrat,350,148,41,29,298.6,M,A
+2020-07-01,prairie vole,151,34,21,14,36.2,F,A
+2020-07-02,western harvest mouse,131,64,17,15,9.8,M,A
+2020-07-02,prairie vole,133,28,20,13,22.6,M,SA
+2020-07-02,prairie vole,151,33,21,16,44.9,F,A
+2020-07-02,deer mouse,139,60,20,16,15.5,F,A
+2020-07-02,deer mouse,136,55,20,16,16.4,M,SA
+2020-07-02,prairie vole,122,28,19,13,18.8,F,SA
+2020-07-02,prairie vole,97,26,16,11,8.9,F,JUV
+2020-07-02,prairie vole,89,25,18,13,10.5,M,JUV
+2020-07-02,prairie vole,137,32,20,14,25,F,A
+2020-07-03,prairie vole,143,30,20,15,39.5,M,A
+2020-07-03,deer mouse,122,51,18,10,10.1,N,NA
+2020-07-03,deer mouse,129,50,20,15,16.5,M,A
+2020-07-03,western harvest mouse,127,62,17,14,9.6,M,A
+2020-07-03,deer mouse,129,53,19,15,13.5,F,A
+2020-07-07,deer mouse,NA,19,54,NA,14,M,A
+2020-07-07,deer mouse,NA,54,19,NA,14,F,A
+2020-07-07,deer mouse,NA,56,20,NA,17,M,A
+2020-07-07,eastern woodrat,NA,133,43,NA,155,M,A
+2020-07-07,deer mouse,NA,56,16,NA,17,F,A
+2020-07-07,deer mouse,NA,60,20,NA,15,M,SA
+2020-07-07,deer mouse,NA,64,20,NA,24,F,A
+2020-07-07,deer mouse,NA,59,18,NA,18,F,A
+2020-07-07,prairie vole,NA,35,20,NA,46,F,A
+2020-07-07,deer mouse,NA,52,20,NA,20,M,A
+2020-07-07,eastern woodrat,NA,116,37,NA,140,M,A
+2020-07-08,eastern woodrat,NA,143,42,NA,210,M,A
+2020-07-08,deer mouse,NA,69,21,NA,20,F,A
+2020-07-08,western harvest mouse,NA,62,16,NA,12,M,A
+2020-07-08,deer mouse,NA,53,18,NA,15,M,A
+2020-07-08,deer mouse,NA,62,20,NA,14,F,A
+2020-07-08,prairie vole,NA,31,20,NA,32,F,A
+2020-07-08,deer mouse,NA,56,19,NA,16,M,A
+2020-07-08,deer mouse,NA,53,20,NA,19,M,A
+2020-07-08,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-08,deer mouse,NA,48,19,NA,16,M,SA
+2020-07-08,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-08,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-08,deer mouse,NA,91,20,NA,18,M,A
+2020-07-08,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,western harvest mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,western harvest mouse,NA,52,14,NA,9,M,A
+2020-07-09,prairie vole,NA,32,20,NA,30,M,A
+2020-07-09,deer mouse,NA,56,20,NA,13,F,A
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,51,20,NA,13,F,A
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,52,18,NA,14,F,S
+2020-07-09,western harvest mouse,NA,67,16,NA,14,M,A
+2020-07-09,deer mouse,NA,55,19,NA,18,F,A
+2020-07-09,deer mouse,NA,56,19,NA,16,M,A
+2020-07-09,prairie vole,NA,38,19,NA,38,M,A
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-09,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,western harvest mouse,NA,62,16,NA,11,M,A
+2020-07-10,western harvest mouse,NA,68,16,NA,13,F,A
+2020-07-10,western harvest mouse,NA,67,17,NA,12,M,A
+2020-07-10,eastern woodrat,NA,127,40,NA,135,F,A
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2020-07-10,western harvest mouse,NA,56,16,NA,10,M,A
+2020-07-10,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-18,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-18,deer mouse,NA,55,18,NA,14,M,A
+2021-06-18,prairie vole,NA,32,48,NA,17,F,J
+2021-06-18,eastern woodrat,NA,135,37,NA,100,M,SA
+2021-06-18,deer mouse,NA,67,19,NA,18,M,A
+2021-06-18,deer mouse,NA,69,18,NA,21,M,A
+2021-06-19,deer mouse,NA,57,20,NA,15,M,A
+2021-06-19,prairie vole,NA,36,22,NA,32,M,A
+2021-06-19,prairie vole,NA,32,17,NA,20,M,J
+2021-06-19,prairie vole,NA,26,19,NA,14,M,J
+2021-06-19,prairie vole,NA,36,20,NA,52,F,A
+2021-06-19,prairie vole,NA,37,19,NA,41,M,A
+2021-06-19,deer mouse,NA,56,16,NA,16,F,A
+2021-06-19,prairie vole,NA,35,19,NA,33,F,A
+2021-06-19,prairie vole,NA,34,20,NA,25,M,A
+2021-06-19,prairie vole,NA,35,23,NA,36,M,A
+2021-06-20,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-20,deer mouse,NA,58,20,NA,17,F,SA
+2021-06-20,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-20,deer mouse,NA,57,19,NA,20,M,A
+2021-06-20,prairie vole,NA,37,20,NA,46,F,A
+2021-06-20,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-20,deer mouse,NA,77,21,NA,25,M,A
+2021-06-20,prairie vole,NA,26,17,NA,13,M,SA
+2021-06-20,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-20,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-20,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-20,prairie vole,NA,27,18,NA,47,F,A
+2021-06-20,prairie vole,NA,29,17,NA,15,F,SA
+2021-06-20,prairie vole,NA,33,18,NA,47,F,A
+2021-06-20,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-20,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,56,18,NA,15,F,SA
+2021-06-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,80,21,NA,27,F,A
+2021-06-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,64,19,NA,13,M,A
+2021-06-21,deer mouse,NA,56,19,NA,15,M,A
+2021-06-21,prairie vole,NA,29,15,NA,29,F,A
+2021-06-21,prairie vole,NA,33,19,NA,31,M,SA
+2021-06-21,deer mouse,NA,53,18,NA,10,F,SA
+2021-06-21,deer mouse,NA,55,18,NA,16,M,SA
+2021-06-21,prairie vole,NA,36,19,NA,29,M,A
+2021-06-21,prairie vole,NA,20,15,NA,10,F,J
+2021-06-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-21,prairie vole,NA,28,17,NA,17,F,A
+2021-06-21,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-21,deer mouse,NA,60,17,NA,11,M,SA
+2021-06-21,prairie vole,NA,45,23,NA,50,F,A
+2021-06-21,deer mouse,NA,57,20,NA,10,M,A
+2021-06-26,deer mouse,NA,51,20,NA,16,M,SA
+2021-06-26,deer mouse,NA,62,19,NA,20,M,A
+2021-06-26,prairie vole,NA,35,19,NA,38,M,A
+2021-06-26,prairie vole,NA,31,19,NA,30,M,SA
+2021-06-27,prairie vole,NA,40,20,NA,45,F,A
+2021-06-27,eastern woodrat,NA,96,35,NA,74,F,SA
+2021-06-27,deer mouse,NA,63,18,NA,18,M,A
+2021-06-27,deer mouse,NA,56,18,NA,13,M,J
+2021-06-27,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-27,prairie vole,NA,35,20,NA,56,F,A
+2021-06-28,eastern woodrat,NA,NA,28,NA,100,M,A
+2021-06-28,eastern woodrat,NA,NA,NA,NA,NA,N,NA
+2021-06-28,deer mouse,NA,58,17,NA,20,M,A
+2021-06-28,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-28,prairie vole,NA,29,18,NA,28,F,A
+2021-06-28,prairie vole,NA,31,18,NA,38,F,A
+2021-06-28,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-29,eastern woodrat,NA,147,36,NA,100,F,A
+2021-06-29,eastern woodrat,NA,127,41,NA,100,M,A
+2021-06-29,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-29,prairie vole,NA,NA,NA,NA,NA,N,NA
+2021-06-29,deer mouse,NA,NA,NA,NA,NA,N,NA
+2021-06-29,prairie vole,NA,NA,NA,NA,NA,N,NA

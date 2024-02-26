@@ -1,0 +1,249 @@
+---
+title: "Some ideas for exploring missing data"
+format: 
+  docx: default
+  html: default
+  gfm: default
+fig-format: retina
+bibliography: references.bib
+---
+
+Nicholas Tierney
+
+Infectious Disease Ecology and Modelling group
+
+Telethon Kids Institute, Perth, WA, Australia
+
+```{r}
+#| echo: false
+options(tidyverse.quiet = TRUE)
+library(knitr)
+```
+
+```{r}
+#| label: load-pkgs
+library(tidyverse)
+library(visdat)
+library(naniar)
+```
+
+
+```{r}
+#| include: false
+rodents <- read_csv("data/rodents.csv")
+```
+
+# Introduction
+
+When you do data analysis, you come across missing data. Because I felt so frustrated by how hard it was to handle and wrangle missing data, I wanted to make it easier. In my endeavours I have written two R packages, `visdat` and `naniar`, for exploring missing data, and several papers on the topic. 
+
+The present goal is to share some ideas on exploring missing data, using `naniar`, and `visdat`. To that end, we will focus on four questions.
+
+1.  How do we start looking at missing data?
+2.  How do we explore missingness in variables?
+3.  How do we explore missingness relationships?
+4.  How do we explore imputed values?
+
+We will explore questions 1 and 2 in this article. Questions 3 and 4 will be explored in the next issue.
+
+But first, let's introduce ourselves to the data.
+
+# The data
+
+The data used for this paper is measurements of rodents in Kansas, from @hope2023. The use of this data is inspired by Allison Horst's "Exploring missing values in naniar" [shiny application](https://allisonhorst.shinyapps.io/missingexplorer/). In this paper we use a different, larger set of the data. For information on the metadata of the paper see [here](http://lter.konza.ksu.edu/content/csm08-small-mammal-host-parasite-sampling-data-16-linear-trapping-transects-located-8-lter). The data set provides various biometric length and weight measurements, for four species of rodents: the Eastern woodrat, Prairie vole, Western harvest mouse, and Deer mouse. Table @tbl-rodents-slice shows a snapshot of 6 selected rows of the data, which shows some of the missingness.
+
+```{r}
+#| label: tbl-rodents-slice
+#| echo: false
+#| tbl-cap: "A subset of the rodents dataset, containing measurements of various rodents, including: total length - from tail to nose, tail length, hind foot length, ear length, and weight. Each row represents a measurement of a given species of roden at a particular date. There are missing values represented by 'NA'."
+rodents %>% 
+  # selected snapshot of interesting missingness
+  filter(between(row_number(), 75, 80)) %>% 
+  kable()
+```
+
+# How do we start looking at missing data?
+
+To get an overview of the missing data, we can use the `visdat` package [@visdat], which was inspired by the work in [`csv-fingerprint`](https://setosa.io/blog/2014/08/03/csv-fingerprints/), and functions like `missmap`, from `Amelia` [@amelia]. The key function for exploring missingness is `vis_miss()`, which visualises the missingness of a whole dataframe. @fig-vis-miss gives an example where it displays the data as missing, or not missing, and provides information on the amount of missings in each column.
+
+
+```{r}
+#| label: fig-vis-miss
+#| fig-height: 3
+#| fig-cap: "An overview of missing data in the rodents dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age."
+vis_miss(rodents)
+```
+
+We learn there is nearly 29% missing data overall, the missing data occurs in `total_length`, `tail_length`, `hind_foot_length`, `ear_length`, `weight`, and `age`, and mostly in `total_length` and `ear_length`. 
+
+## Exploring subgroups: Using facetting in visdat
+
+To see this plot split up by species, we can split up the `vis_miss` plots into several facetted plots via the `facet` argument. For example, in @fig-vis-miss-facet we facet by the `species` variable. Visually, it appears that the missingness occurs in each species at roughly the same rate. 
+
+```{r}
+#| label: fig-vis-miss-facet
+#| fig-height: 4
+#| fig-cap: "An further overview of missing data in the rodents dataset. Similar to the previous graphic, we now present a facetted series of sub plots, one for each species. We learn from this that the missingness seems to be the same across each species"
+vis_miss(rodents, facet = species) 
+```
+
+There are other functions in the visdat package that focus on other types of data, for example, `vis_value()`, `vis_binary()`, and `vis_compare()`. To read more about the functions available in `visdat` see the vignette ["Using visdat"](https://CRAN.R-project.org/package=visdat/vignettes/using_visdat.html).
+
+# How do we explore missingness in variables?
+
+The `visdat` package provides overviews of data, whereas `naniar` provides a more comprehensive set of tools for missing data. 
+
+## Numerical summaries of missing values
+
+Two convenient counters of complete values and missings are `n_miss()` and `n_complete()`. These work on both data frames and vectors, similar to `dplyr::n_distinct()`
+
+```{r}
+#| label: helpers-n-miss
+#| echo: true
+
+dplyr::n_distinct(rodents)
+dplyr::n_distinct(rodents$tail_length)
+
+n_miss(rodents)
+n_miss(rodents$tail_length)
+
+n_complete(rodents)
+n_complete(rodents$tail_length)
+
+```
+
+The functions `prop_miss_case()` and `pct_miss_case()` return numeric value describing the proportion or percent of missing values in the dataframe.
+
+```{r}
+#| label: prop-miss-case
+prop_miss_case(rodents)
+pct_miss_case(rodents)
+```
+
+Similar to `pct_miss_case()`, `prop_miss_case()`, `pct_miss_var()` and `prop_miss_var()` returns the percent and proportion of variables that contain a missing value.
+
+```{r}
+#| label: prop-miss-var
+prop_miss_var(rodents)
+pct_miss_var(rodents)
+```
+
+The syntax for the other numerical summaries in `naniar` are `miss_`, and then `case`, or `var` to refer to cases or variables. There are then `summary`, `table` suffixes. For example, the `miss_case_summary()` function returns a numeric value that describes the number of missings in a given case (aka row), the percent of missings in that row.
+
+```{r}
+#| label: miss-case-summary
+
+miss_case_summary(rodents) %>% head()
+
+```
+
+The `miss_case_table()` function tabulates the number of missing values in a case / row. Below, this shows the number of missings in a case:
+
+```{r}
+#| label: miss-case-table
+
+miss_case_table(rodents)
+
+```
+
+We can interpret this output as follows:
+
+- 195 cases with 0 missings, which comprises about 25% of the data,
+- 48 cases with 1 missing, these make up 6% of the data,
+- 277 cases with 2 missing, these make up 35% of the data,
+- and so on.
+
+`miss_var_summary()` returns the number of missing values in a variable, and the percent missing in that variable.
+
+```{r}
+#| label: miss-var-summary
+
+miss_var_summary(rodents)
+
+```
+
+Finally, the `miss_var_table()` function describes the number of missings in a variable:
+
+```{r}
+#| label: miss-var-table
+
+miss_var_table(rodents)
+
+```
+
+We can interpret this as there being:
+
+-   3 variables with 0 missings, comprising 33% of variables in the dataset, and
+-   in the remaining variables similar patterns of missings, but not the exact same number of missing values.
+
+
+## Visualise missingness in variables
+
+To specifically focus on the number or proportion of missings in each variable, we can use `gg_miss_var()`, as seen in @fig-gg-miss-var.
+
+```{r}
+#| label: fig-gg-miss-var
+#| fig-height: 2
+#| fig-cap: "Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age."
+gg_miss_var(rodents)
+```
+
+This displays the number of missing values in each variable. We learn similar information to @fig-vis-miss: total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age. Just like with `vis_miss()`, we can add in facets in these plots, via the `facet` argument, see @fig-gg-miss-var-facet. We learn again, that the species have similar amounts of missing data in their variables. Sometimes it is useful to confirms the same piece of information!
+
+```{r}
+#| label: fig-gg-miss-var-facet
+#| fig-height: 3
+#| fig-cap: "Similar to the above plot but one subplot for each species. We learn that the missingness pattern is pretty similar for each species. We normalise using `show_pct = TRUE` as there are different numbers of observations in each species."
+
+gg_miss_var(rodents, facet = species, show_pct = TRUE)
+```
+
+It feels like there are several patterns with the missingness - some variables tend to go missing at the same time. To explore these patterns we can use `gg_miss_upset()`, which produces an "upset" plot of the intersecting sets of missingness [@Conway2017]. This can be thought of as a generalised way to visualise intersecting Venn diagrams.
+
+```{r}
+#| label: fig-gg-miss-upset
+#| fig-cap: "An upset plot of 7 sets of missingness in the rodents data displaying a more nuanced depiction of the patterns of missingness in the data. The number of missings in each variable is seen on the bottom left bar plot. The bottom panel shows the different sets of co-occuring missingness. For example, the bottom left two dots show ear length and total length going missing together - corresponding to the bar plot above it, showing 278 missings. We learn that there are two dominant sets of missingness, where ear length and total length go missing, and then weight hind foot length, tail length, ear length and total length being missing."
+gg_miss_upset(rodents)
+```
+
+There are more visualisations available in `naniar` (each starting with `gg_miss_`) - you can see these in the ["Gallery of Missing Data Visualisations" vignette](https://cran.r-project.org/package=naniar/vignettes/naniar-visualisation.html). Most plots created with the `gg_miss` family all have a basic theme (except for `gg_miss_upset()`), but you can customise them by adding components like a standard ggplot object:
+
+```{r}
+#| label: gg-miss-var-theme
+#| fig-show: hide
+gg_miss_var(rodents) + 
+  theme_bw() + 
+  labs(y = "Number of missing observations")
+```
+
+It is also worth noting that for every visualisation of missing data in `naniar`, there is an accompanying function to extract the data used in the plot. This is important as the plot should not return a dataframe - but we want to make the data available for use by the user so it isn't locked into a plot.
+
+For example, `miss_var_summary()` provides the dataframe that `gg_miss_var()` is based on.
+
+```{r}
+miss_var_summary(rodents)
+```
+
+Which also works with `group_by()`:
+
+```{r}
+#| results: hide
+rodents %>% 
+  group_by(species) %>% 
+  miss_var_summary()
+```
+
+Similarly, there is a `data_vis_miss()` function in the `visdat` package, which returns the data in the format that this visualisation requires.
+
+```{r}
+#| results: hide
+data_vis_miss(rodents)
+```
+
+The aim of these is to provide the data required to make these visualisations, so if people want to create their own more customised versions of `vis_miss()` or `gg_miss_var()` then they can do that.
+
+## Conslusion
+
+This article has explored how to generate summaries and visualisations to help understand the missingness in your data set with the `visdat` and `naniar` packages. In the next issue, we will extend this to exploring and visualising missingness in multivariate settings, including bivariate missingness plots, identifying clusters of missingness and visualising imputed data.
+
+# References
