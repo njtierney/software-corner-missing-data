@@ -169,27 +169,6 @@ We can interpret this as:
 -   There are 3 variables with 0 missings, comprising 33% of variables in the dataset.
 -   There are in the remaining variables similar patterns of missings, but not the exact same number of missing values.
 
-There are also summary functions for exploring missings that occur over a particular span or period of the dataset, or the number of missings in a single run - `miss_var_run()`, and `miss_var_span()`. The reader can see the use of these functions in the documentation: https://naniar.njtierney.com/reference/miss_var_run.html and  https://naniar.njtierney.com/reference/miss_var_span.html 
-
-`miss_var_run()` provides summaries for the number of missings or complete values in a single "run". This is particularly useful for time series data. We demonstrate `miss_var_run()` with the built-in dataset, `pedestrian`, containing hourly counts of pedestrians from four locations around Melbourne, Australia, from 2016. We explore the runs of missingness for `hourly_counts` like so:
-
-```{r}
-#| label: miss-var-run
-miss_var_run(pedestrian,
-             hourly_counts)
-```
-
-To instead explore the number of missings over a repeating span of rows, you can use `miss_var_span()`. Below we specify the span for `hourly_counts` and then the size of the span with `span_every`.
-
-```{r}
-#| label: ped-miss-var-span
-
-miss_var_span(pedestrian,
-              hourly_counts,
-              span_every = 100)
-
-```
-
 ## Visualise missingness in variables
 
 To specifically focus on the number or proportion of missings in each variable, we can use `gg_miss_var()`, as seen in @fig-gg-miss-var.
