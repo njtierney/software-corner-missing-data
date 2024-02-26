@@ -75,13 +75,13 @@ rodents_clean <- rodents_raw %>%
     species = common_name
   )
 
-rodents_clean %>% count(common_name)
+rodents_clean %>% count(species)
 # rodents_clean %>% vis_miss(facet = common_name)
 # choose four most common
 
 rodents <- rodents_clean %>% 
   filter(
-    common_name %in% c(
+    species %in% c(
       "eastern woodrat",
       "prairie vole",
       "western harvest mouse",
