@@ -61,7 +61,6 @@ To get an overview of the missing data, we can use the `visdat` package [@visdat
 
 ```{r}
 #| label: fig-vis-miss
-#| fig-height: 5
 #| fig-cap: "An overview of missing data in the rodents dataset. The x axis shows the variables of the data, along with the amount of missingness in that variable, and the y axis shows the rows. Each cell represents the missingness of a datum. The overall missingness is given in a percentage below in the legend. We learn that there is nearly 29% missing data overall, the missing data occurs in total_length, tail_length, hind_foot_length, ear_length, weight, and age."
 vis_miss(rodents)
 ```
@@ -176,8 +175,6 @@ To specifically focus on the number or proportion of missings in each variable, 
 
 ```{r}
 #| label: fig-gg-miss-var
-#| fig-height: 3
-#| fig-width: 5
 #| fig-cap: "Number of missing values for each variable. The x axis shows the number of missings, and the y axis shows each variable. We learn total length, and ear length have the most missing values, followed by tail length, hind foot length, weight, and age."
 gg_miss_var(rodents)
 ```
@@ -186,8 +183,6 @@ This displays the number of missing values in each variable. We learn similar in
 
 ```{r}
 #| label: fig-gg-miss-var-facet
-#| fig-height: 7
-#| fig-width: 6
 #| fig-cap: "Similar to the above plot but one subplot for each species. We learn that the missingness pattern is pretty similar for each species. We normalise using `show_pct = TRUE` as there are different numbers of observations in each species."
 
 gg_miss_var(rodents, facet = species, show_pct = TRUE)
@@ -259,8 +254,6 @@ Let's say that we want to explore the relationship between tail length and ear l
 #| label: fig-example-geom-point
 #| warning: false
 #| echo: true
-#| fig-width: 3
-#| fig-height: 3
 #| fig-cap: "Plot of ear length against tail length. Ear length is on the X axis and tail length is on the Y axis. We learn that there is a reasonable positive correlation of tail length and ear length."
 
 library(ggplot2)
@@ -314,7 +307,7 @@ As evidenced by @gg-miss-upset, there is a structure in the missingness in the r
 
 ```{r}
 #| label: gg-miss-var-cluster
-#| fig-cap: ""
+#| fig-cap: "Number of missings for each variable for each cluster. We see clear patterns emerge where there are two variables missing in cluster two, six variables missing in cluster three, and not as many missings in clusters one and four."
 rodents_miss_clust <- rodents %>% add_miss_cluster(n_clusters = 4)
 gg_miss_var(rodents_miss_clust, facet = miss_cluster)
 ```
@@ -355,8 +348,6 @@ The [`simputation`](https://cran.r-project.org/package=simputation) package prov
 #| label: fig-simpute-invisible
 #| message: false
 #| echo: true
-#| fig-height: 3
-#| fig-width: 3
 #| fig-cap: "Imputed values are not visible. A plot of tail length by weight. The Imputed tail length values are not visible because we have no way to identify them in the data."
 
 library(simputation)
@@ -387,8 +378,6 @@ Using the shadow matrix to keep track of where the missings are, you can actuall
 ```{r}
 #| label: fig-simpute-visible-lm
 #| echo: true
-#| fig-height: 3
-#| fig-width: 4
 #| fig-cap: "Linear model imputed values of tail length in a scatterplot of tail length vs weight. Weight is on the X axis and tail_length is on the Y axis, and the points are coloured by whether they are imputed - 'NA' indicates a previously missing value that has been imputed. We can see where imputations are added, but they are very concentrated"
 
 rodents_nabular <- rodents %>%
@@ -413,6 +402,7 @@ The `simputation` package has a nice option to add residual noise to the imputat
 Importantly, we can actually compare the two methods as below. This first imputes the data using the residual method, then rowbinds the two datasets together, creating a column called "imputation_type", which records which type of imputation was used, either "add_residual" or "no_residual":
 
 ```{r}
+#| warning: false
 rodents_lm_tail_imputed_res <- rodents_nabular %>% 
   impute_lm(tail_length ~ species + date, add_residual = "observed") %>% 
   impute_lm(weight ~ tail_length + species + date, add_residual = "observed")
