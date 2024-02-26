@@ -133,7 +133,7 @@ The syntax for the other numerical summaries in `naniar` are `miss_`, and then `
 ```{r}
 #| label: miss-case-summary
 
-miss_case_summary(rodents) |> head()
+miss_case_summary(rodents) %>% head()
 
 ```
 
